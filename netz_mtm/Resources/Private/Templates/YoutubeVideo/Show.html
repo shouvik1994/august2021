@@ -1,0 +1,54 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+
+	 <!-- video content element -->
+            <div class="element element-gap-normal block-section centered-container clearfix">
+             <div class="container container-width-default clearfix">
+                <div class="video-content-element lg-grid-varient clearfix">
+                    
+                    <div class="row clearfix">
+
+                        <!-- col -->
+                        <div class="col-md-8 my-col">
+                            <div class="main-wrap clearfix">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{video.videoid}?rel=0" allowfullscreen></iframe>
+                                </div>
+                            </div>    
+                        </div>
+                        <!-- col -->
+
+                         <!-- col -->
+                        <div class="col-md-4 my-col">
+                            <div class="main-wrap clearfix">
+                                <div class="entry clearfix">
+                                    <h5>{video.title}</h5>
+                                    <p><f:format.html>{video.description}</f:format.html></p>
+                                </div>
+                            </div>    
+                        </div>
+                        <!-- col -->
+
+
+                    </div>
+
+                </div>
+             </div>  
+            </div>
+            <!-- video content element -->
+
+    </f:section>
+    </html>

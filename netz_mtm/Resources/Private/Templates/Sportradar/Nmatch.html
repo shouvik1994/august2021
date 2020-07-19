@@ -1,0 +1,98 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="Default" />
+
+    This Template is responsible for creating a table of domain objects.
+
+    If you modify this template, do not forget to change the overwrite settings
+    in /Configuration/ExtensionBuilder/settings.yaml:
+      Resources:
+        Private:
+          Templates:
+            List.html: keep
+
+    Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+
+    <f:section name="content">
+     <!-- table-match-schedule -->
+            <div class="element element-gap-large block-section default-left-right-padding clearfix">
+
+                <div class="table-match-schedule-module clearfix">
+                
+                        <div class="row">
+                                
+
+                                <!-- table anchor -->
+                                <div class="col-md-4 my-col">
+                                    <div class="main-wrap table-anchor-module clearfix"><a class="smooth-anchor" href="#tabelle-content-module"></a></div>
+                                </div>
+                                <!-- table anchor -->
+
+                                <!-- next-match-schedule -->
+                                <div class="col-md-8 my-col">
+                                    <div class="main-wrap next-match-schedule clearfix">
+
+                                        <div class="heading">next match</div>
+                                        
+                                        <div class="clear"></div>
+
+                                        <!-- schedule -->
+                                        <div class="next-match-schedule-board type-one has-secondary-part">
+
+                                        <a href="#">
+
+
+
+                                            <div class="primary-part part clearfix">  
+                                            <f:for each="{next_match.competitors}" iteration="iterator" as="competitor">
+  
+
+                                                <f:if condition="{iterator.cycle}== 1">
+                                                <div class="type-one"><i>
+                                                <f:if condition="{competitor.logo}">
+                                                <f:image src="{competitor.logo.uid}" alt="" treatIdAsReference="1" width="50" />
+                                                </f:if>
+                                                </i><span>{competitor.name}</span></div>
+                                                <hr> 
+                                                </f:if>
+                                                
+                                     
+                                                <f:if condition="{iterator.cycle}== 2">   
+                                                <div class="type-two"><span>{competitor.name}</span><i>
+                                                <f:if condition="{competitor.logo}">
+                                                <f:image src="{competitor.logo.uid}" alt="" treatIdAsReference="1" width="50" />
+                                                </f:if>
+                                                </i></div>
+                                            </f:if>
+                                            </f:for>
+                                            </div>
+
+                                             <div class="secondary-part part clearfix">      
+
+                                                <div class="type-two full-height">
+                                                    <div class="table-wrap"><div class="table-cell middle-line">
+                                                        <span>
+                                                            {next_match.venue.name},{next_match.venue.city_name}, Do <f:format.date format="d.m.Y , H:i">{next_match.start_time }</f:format.date> Uhr</span><i><img src="fileadmin/templates/Website/Images/tickets-danger.svg" width="46"></i>
+                                                    </div></div>
+                                                </div>
+
+
+                                            </div>
+                                        </a>
+                                        </div>
+                                        <!-- schdule -->
+
+                                    </div>
+                                </div>
+                                <!-- next-match-schedule -->
+
+
+                        </div>
+                </div>
+
+            </div>
+
+            <!-- table-match-schedule -->
+    
+</f:section>
+</html>

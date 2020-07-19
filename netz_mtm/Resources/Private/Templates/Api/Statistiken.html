@@ -1,0 +1,443 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+<!-- Scrollable page content-->
+<!-- kader module -->
+                            <div class="element element-gap-Exlarger block-section centered-container clearfix">
+
+                            <div class="container-fluid">
+
+
+                            <!-- module -->
+                            <div class="kader-module clearfix">
+
+                            <!-- detail view -->
+                            <div class="link-tab-varient var-1 clearfix">
+                            <div class="kader-detail-view single-stand clearfix">
+
+                            <!-- detail player secondary info -->
+                            <div class="detail-player-secondary-info clearfix">
+
+                                        <!-- tab-link-page -->
+                                        <div class="tab-link-page-module element element-gap-Lessnormal clearfix">
+                                        <div class="main-wrap">
+
+                                        <div class="pull-text-left prev">
+                                        <a href="/matchcenter/">
+                                        <i></i>
+                                        </a> 
+                                        </div>
+
+
+                                        <div class="pull-text-center active">
+
+                                        <span>STATISTIKEN</span>
+
+                                        </div>
+
+
+                                        <div class="pull-text-right next">
+                                        <a href="/spielplaene/">
+                                        <i></i>
+                                        </a> 
+                                        </div>
+
+
+                                        </div>
+                                        </div>
+                                        <!-- tab-link-page -->
+
+                                        <!-- tab link -->
+                                        <div class="info-tab-link-carousel general-carousel element element-gap-Lessnormal">
+                                        <div class="owl-carousel clearfix">
+
+
+
+                                        <div class="item">
+                                        <a href="#statistikentab1" class="tab-link tab-link-active">
+                                        <div>
+                                        <span>SPIELE</span>
+                                        </div>
+                                        </a>
+                                        </div>
+
+
+                                        <div class="item">
+                                        <a href="#statistikentab2" class="tab-link">
+                                        <div>
+                                        <span>Feldspieler</span>
+                                        </div>
+                                        </a>
+                                        </div>
+
+                                        <div class="item">
+                                        <a href="#statistikentab3" class="tab-link">
+                                        <div>
+                                        <span>Torhüter</span>
+                                        </div>
+                                        </a>
+                                        </div>
+
+                                        </div>
+                                        </div>
+                                        <!-- tab link -->
+
+
+                                                            <!-- info-tab-body -->
+                                                <div class="info-tab-body-wrap clearfix">
+
+                                                    <div class="info-tab-body tabs clearfix">
+
+
+                                                        <div id="statistikentab1" class="tab tab-active">
+                                                            <!-- Tab 1, active by default -->
+                                                            <div class="content-block">
+                                                            <!-- the-tabelle -->
+
+                                                                    <div class="tabelle-content-module clearfix"> 
+                                                                    <div class="the-tabelle content clearfix">
+                                                                    <div class="clearfix table-responsive">
+                                                                    <table border="0" cellpadding="0" cellspacing="0">
+
+                                                                            <!-- thead -->
+                                                                            <thead>
+                                                                            <tr>
+                                                                                <th>Datum</th>
+                                                                                <th>zeit</th>
+                                                                                <th>VS.</th>
+                                                                                <th>7M</th>
+                                                                                <th>T</th>
+                                                                                <th>BL</th>
+                                                                                <th>2M</th>
+                                                                                <th>FW</th>
+                                                                                <th>ST</th>
+                                                                                <th>W</th>
+                                                                                <th>TF</th>
+                                                                                <th>GK</th>
+                                                                                <th>RK</th>
+                                                                                <th>Wat</th>
+                                                                                <th>GT</th>
+                                                                                <th>P</th>
+                                                                                <th>AS</th>
+                                                                                <th>FT</th>
+                                                                                <th>GW</th>
+                                                                                <th>WG</th>
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <!-- thead -->
+
+                                                                            <!-- tbody -->
+                                                                            <tbody>
+                                                                <f:for each="{statistiken_data.all_match}" key="key" as="data">
+
+                                                                        <tr>
+
+                                                                            <td><f:format.date format="d.m.Y">{data.start_time}</f:format.date></td>
+                                                                            <td><f:format.date format="H:i">{data.start_time}</f:format.date></td>
+                                                                            <td class="team-iconi-td">
+
+                                                                            <div class="tabelle-team-info">
+                                                                            <i>
+                                                                            <img src="{data.logo}">
+
+                                                                            </i>
+                                                                            <span>{data.name}
+                                                                            
+                                                                            </span>
+                                                                            </div>
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.seven_m_goals}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.goals_scored}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.blocks}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.suspensions}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.shots_off_goal}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.steals}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.shots}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.technical_fouls}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.yellow_cards}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.red_cards}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.shots_on_goal}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.goals_conceded}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.saves}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.assists}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.field_goals}
+                                                                            </td>
+                                                                             <td>
+                                                                                {data.statistics.shots_against}
+                                                                            </td>
+                                                                             <td>
+
+                                                                              {data.statistics.shot_accuracy}
+                                                                            </td>
+                                                                           
+                                                                        </tr>
+                                                                </f:for>
+                                                            </tbody>
+                                                                            <!-- tbody -->
+
+                                                            </table>
+                                                            </div>
+
+                                                            </div>
+                                                            </div>
+                                                                    <!-- the-tabelle -->
+                                                            </div>
+                                                            </div>
+                                                            <!-- Tab 1, active by default -->
+
+                                               <div id="statistikentab2" class="tab">
+                                                            <!-- Tab 1, active by default -->
+                                                            <div class="content-block">
+
+                                                                  <div class="tabelle-content-module clearfix"> 
+                                                                    <div class="the-tabelle content clearfix">
+                                                                    <div class="clearfix table-responsive">
+                                                                    <table border="0" cellpadding="0" cellspacing="0">
+
+                                                                            <!-- thead -->
+                                                                            <thead>
+                                                                            <tr>
+                                                                                 <th>PL</th>
+                                                                                <th>Name</th>
+                                                                                <th>S</th>
+                                                                               <th>7M</th>
+                                                                                <th>T</th>
+                                                                                <th>BL</th>
+                                                                                <th>2M</th>
+                                                                                <th>FW</th>
+                                                                                <th>ST</th>
+                                                                                <th>W</th>
+                                                                                <th>TF</th>
+                                                                                <th>GK</th>
+                                                                                <th>RK</th>
+                                                                                <th>Wat</th>
+                                                                                <th>GT</th>
+                                                                                <th>P</th>
+                                                                                <th>AS</th>
+                                                                                <th>FT</th>
+                                                                                <th>GW</th>
+                                                                                <th>WG</th>
+
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <!-- thead -->
+
+                                                                            <!-- tbody -->
+                                                                            <tbody>
+                                                               <f:for each="{statistiken_data.players_others}" key="key" as="data" iteration="itemIterator">
+                                                                    <tr>
+                                                                        <td>{itemIterator.cycle}</td>
+                                                                       <td>{data.name}</td>
+                                                                       <td>
+                                                                            {data.match_played}
+                                                                        </td>
+                                                                        <td>
+                                                                            {data.seven_m_goals}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.goals_scored}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.blocks}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.suspensions}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.shots_off_goal}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.steals}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.shots}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.technical_fouls}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.yellow_cards}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.red_cards}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.shots_on_goal}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.goals_conceded}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.saves}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.assists}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.field_goals}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.shots_against}
+                                                                        </td>
+                                                                         <td>
+                                                                           
+                                                                    {data.shot_accuracy}%
+
+                                                                 
+                                                                        </td>
+                                                                       
+
+                                                                    </tr>
+                                                                </f:for>
+
+                                                            </tbody>
+                                                                            <!-- tbody -->
+
+                                                            </table>
+                                                            </div>
+
+                                                            </div>
+                                                            </div>
+                                                                    <!-- the-tabelle -->
+
+                                                            </div>
+
+                                               </div>
+
+
+                                                <div id="statistikentab3" class="tab">
+                                                            <!-- Tab 1, active by default -->
+                                                            <div class="content-block">
+
+                                                                  <div class="tabelle-content-module clearfix"> 
+                                                                    <div class="the-tabelle content clearfix">
+                                                                    <div class="clearfix table-responsive">
+                                                                    <table border="0" cellpadding="0" cellspacing="0">
+
+                                                                            <!-- thead -->
+                                                                            <thead>
+                                                                            <tr>
+                                                                                <th>PL</th>
+                                                                                <th>Name</th>
+                                                                                <th>S</th>
+                                                                                <th>BL</th>
+                                                                                <th>P</th>
+                                                                                <th>GW</th>
+                                                                                <th>GT</th>
+                                                                                <th>%</th>
+
+
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <!-- thead -->
+
+                                                                            <!-- tbody -->
+                                                                            <tbody>
+                                                        <f:for each="{statistiken_data.players_g}" key="key" as="data" iteration="itemIterator">
+                                                                    <tr>
+                                                                        <td>{itemIterator.cycle}</td>
+                                                                       <td>{data.name}</td>
+                                                                       <td>
+                                                                            {data.match_played}
+                                                                        </td>
+                                                                         <td>
+                                                                            {data.blocks}
+                                                                        </td>
+                                                                        <td>
+                                                                            {data.saves}
+                                                                        </td>
+                                                                        <td>
+                                                                            {data.shots_against}
+                                                                        </td>
+                                                                        
+                                                                         <td>
+                                                                            {data.goals_conceded}
+                                                                        </td>
+                                                                        <td>
+                                                                            {data.save_accuracy}%
+                                                                        </td>      
+                                                                    </tr>
+                                                        </f:for>
+
+                                                            </tbody>
+                                                                            <!-- tbody -->
+
+                                                            </table>
+                                                            </div>
+
+                                                            </div>
+                                                            </div>
+
+
+
+                                                            </div>
+
+                                               </div>
+
+
+
+                                                            </div>
+
+                                                            </div>
+                                                            <!-- info-tab-body -->
+
+
+                                                            </div>
+                                                            <!-- detail player secondary info -->
+
+                                </div>
+                                </div>
+                                <!-- detail view -->
+
+                                </div>
+                                <!-- module -->
+
+                                </div>
+
+                                </div>
+                                <!-- kader module -->
+
+
+</f:section>
+</html>

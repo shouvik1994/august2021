@@ -1,0 +1,431 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+
+<f:if condition="{display_details}">
+
+
+    <f:form  name="addCart"  action="detail" id="addCart" controller="Product" method="post" noCacheHash="1" >
+    
+    <input type="hidden" name="tx_netzmtmshop_pdetails[method]" id="pdetails_method" value="">
+    <input type="hidden" name="tx_netzmtmshop_pdetails[uid]" value="{product_uid}">
+    <input type="hidden" name="tx_netzmtmshop_pdetails[attr_id]" value="{attr_id}">
+	<!-- shop product detail  -->
+             <div class="element element-gap-Exlarge-max block-section centered-container clearfix">
+                <div class="container container-width-default clearfix">
+                    
+                      
+                    <!-- shop-product-detail -->
+                    <div class="shop-product-detail max-lg-grid-varient">
+
+                        <div class="row clearfix">
+
+                            <!-- col -->
+                            <div class="col-md-6 my-col two-col">
+                                <div class="main-wrap">
+
+                                    <div class="product-showcase general-carousel">
+                                        <div class="owl-carousel">
+                                     <f:if condition="{productdetail.image}">
+                                         <f:then>
+                                          <f:for each="{productdetail.image}" key="key" as="image"  iteration="fooIterator">
+                                           <div class="item">
+                                         <f:if condition="{image}">
+                                                <f:image src="{image.uid}" alt=""  height="770" width="836" treatIdAsReference="1" />
+                                              
+                                               </f:if>
+
+                                           </div>
+                                         </f:for>
+                                        </f:then>
+                                        <f:else>
+                                         <img src="/fileadmin/templates/Website/Images/noimage.png" alt=""  height="770" width="836"/>
+                                    </f:else>
+                                    </f:if>
+                                         
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- col -->
+
+
+                             <!-- col -->
+                            <div class="col-md-6 my-col two-col">
+                                <div class="main-wrap">
+
+                                    <div class="product-buy-section">
+                                        
+                                         
+                                         <!-- primary info -->
+                                         <div class="primary-info element element-gap-big clearfix">
+
+                                             <div class="element element-gap-Biggertiny block-section clearfix">
+                                                 <div class="module-header pull-text-left light clearfix">
+                                                       <h3>{productdetail.title}<span>{productdetail.subtitle}</span></h3>
+                                                 </div>
+                                              </div>
+
+                                              <div class="entry clearfix">
+                                             <f:format.html>{productdetail.shoretdesc}</f:format.html>
+
+                                           
+                                              </div>
+
+
+                                         </div>
+                                         <!-- primary info -->
+
+                                         <!-- buying option -->
+                                         <div class="buying-options element element-gap-medium clearfix">
+
+                                                <div class="buying-form site-form clearfix">
+                                        
+                                                    <f:if condition="{show_size}">
+                                                     <div class="form-row clearfix">
+                                                        <label>GRÖSSE</label>
+                                                        <div class="form-field width-type-one">
+                                                            <div class="field select-field">
+                                                                <select name="tx_netzmtmshop_pdetails[size]" id="pdetails_size">
+                                <f:for each="{size}" key="key" as="item"  iteration="fooIterator">
+                                            <option value="{item.uid}"   <f:if condition="{item.uid}=={sel_size}"> selected=""</f:if> >{item.title}</option>
+                                </f:for>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </f:if>
+                                            <f:if condition="{show_color}">
+                                            <div class="form-row clearfix">
+                                                        <label>FARBE</label>
+                                                        <div class="form-field width-type-two">
+                                                            <div class="field select-field">
+                                                                <select name="tx_netzmtmshop_pdetails[color]" id="pdetails_color">
+                                  <f:for each="{color}" key="key" as="item"  iteration="fooIterator">
+                                            <option value="{item.uid}" <f:if condition="{item.uid}=={sel_color}"> selected=""</f:if>>{item.title}</option>
+                                </f:for>
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                       </f:if>
+ <f:if condition="{show_bedruckung}">
+                                                    
+                                                    <div class="form-row clearfix">
+                                                        <label>BEDRUCKUNG</label>
+                                                        <div class="form-field width-type-two">
+                                                            <div class="field select-field">
+                                                                <select name="tx_netzmtmshop_pdetails[bedruckung]" id="pdetails_bedruckung">
+                                                                <f:for each="{bedruckung}" key="key" as="item"  iteration="fooIterator">
+                                                                    <option value="{item.uid}" <f:if condition="{item.uid}=={sel_bedruckung}"> selected=""</f:if>>{item.title}</option>
+                                                                </f:for>
+                                                                <option value="0" <f:if condition="{sel_bedruckung}=='0'"> selected=""</f:if>>Individuelle Beflockung</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            
+
+                                                    <div class="form-row tiny-grid-variend clearfix" id="custom_name" <f:if condition="{sel_bedruckung}!='0'"> style="display: none;" </f:if>>
+                                                        <div class="row ext-gap-row">
+                                                           <!-- col -->
+                                                            <div  class="form-col col-md-9 my-col two-col">
+                                                                <div class="form-field block-field">
+                                                                    <input type="text" class="text-input" placeholder="NAME" name="tx_netzmtmshop_pdetails[custom_name]" value="{custom_name}">
+                                                                </div>
+                                                            </div>
+                                                            <!-- col -->
+                                                            <!-- col -->
+                                                            <div  class="form-col col-md-3 my-col two-col">
+                                                                <div class="form-field block-field">
+                                                                    <input type="text" class="text-input" placeholder="NR" name="tx_netzmtmshop_pdetails[custom_number]" value="{custom_number}">
+                                                                </div>
+                                                            </div>
+                                                            <!-- col -->
+                                                        </div>    
+                                                    </div>
+
+
+</f:if>
+                                                    <div class="form-row clearfix productdetail">
+                                                        <label>ANZAHL</label>
+                                                        <div class="form-field incs-decs-number-value clearfix">
+                                                           <div class="value-button decrease">-</div>
+
+                                                            <input type="text" value="{qty}" readonly  id="productdetail_qty" name="tx_netzmtmshop_pdetails[qty]" />
+
+                                                            <div class="value-button increase">+</div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                         </div>
+                                         <!-- buying option -->
+
+                                         <!-- buying price -->
+                                         <div class="buying-price element element-gap-Lgnormal clearfix">
+
+                                            <div class="main-wrap row flex-row">
+                                            
+                                                <div class="primary-part col-md-6 my-col two-col">
+
+                                <f:if condition="{productdetail.discountcheckbox}">
+                                    <f:then>
+                                    <f:if condition="{price}">
+                                                    <span class="old-price price"><f:format.number decimals="2" decimalSeparator=",">{price}</f:format.number>€</span>
+                                     </f:if>
+                                    <f:if condition="{dprice}">
+                                        <span class="new-price price"><f:format.number decimals="2" decimalSeparator=",">{dprice}</f:format.number>€</span>
+                                    </f:if>
+                                    </f:then>
+                                    <f:else>
+                                    <f:if condition="{price}">
+                                                    <span class="new-price price"><f:format.number decimals="2" decimalSeparator=",">{price}</f:format.number>€</span>
+                                    </f:if>
+                                    </f:else>
+                            </f:if>
+
+                                                
+                                                </div>
+
+                                                <div class="secondary-part col-md-6 my-col pull-text-right two-col">
+                                                    <p class="lg--para-text">inkl. MwSt. zzgl <a href="#">Versand</a></p>
+                                                </div>
+
+                                            </div>
+
+                                         </div>
+                                         <!-- buying price -->
+
+                                         <!-- buy button -->
+                                         <div class="buy-button"><a href="javascript:void(0)" id="addCartBtn"><i><img src="fileadmin/templates/Website/Images/shopping-basket-light.svg" width="52"></i><span>IN DEN WARENKORB</span></a></div>
+                                         <!-- buy button -->
+                                         <a class="open-overlay-cart" href="javascript:void(0)" id="fCart"></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- col -->
+
+
+                        </div>
+
+                    </div>
+                    <!-- shop-product-detail -->
+
+
+
+                </div>
+            </div>
+           <!-- shop product detail  -->
+
+           <!-- two column content -->
+            <div class="element element-gap-Exlargest centered-container clearfix">
+                <div class="container container-width-default clearfix">
+
+                    <!-- module header -->
+                         <div class="element element-gap-medium block-section clearfix">
+                            <div class="module-header pull-text-center light clearfix">
+                                 <h2><span>PRODUKTDETAILS</span></h2>
+                             </div>
+                        </div>
+                    <!-- module header -->
+
+                    <!-- normal two column content module -->
+                    <div class="two-column-content-module lg-grid-varient clearfix">
+                        <div class="row clearfix">
+
+                            <f:if condition="{found_additional}">
+                                        <f:then>
+
+                                        <!-- col -->
+                                <div class="col-md-6 my-col">
+                                    
+                                    <div class="main-wrap clearfix">
+
+                                           <div class="entry clearfix">
+                                                
+                                                <p class="lg--para-text">
+                                                   <f:format.html>{productdetail.description}</f:format.html>
+                                                </p>
+
+                                           </div> 
+
+                                    </div>
+
+                                </div>
+                                <!-- col -->
+
+                                
+                                <!-- col -->
+                                <div class="col-md-6 my-col">
+                                    
+                                    <div class="main-wrap clearfix">
+
+                                           <div class="entry clearfix">
+                                                
+                                                <ul class="iconic-list-item">
+                                                <f:for each="{productdetail.additional}" key="key" as="additional"  iteration="fooIterator">
+                                                    <li>
+                                                    <span class="the-icon">
+                                                        <f:if condition="{additional.image}">
+                                                <f:image src="{additional.image.uid}" alt=""  width="51"treatIdAsReference="1" />
+                                               </f:if>
+                                                      </span>
+
+                                                    {additional.title}
+                                                    </li>
+                                                </f:for>
+                                                  
+                                                    
+
+                                                </ul>
+
+                                           </div> 
+
+                                    </div>
+
+                                </div>
+                                <!-- col -->
+
+
+                                        </f:then>
+                                        <f:else>
+                                         <!-- col -->
+                            
+                                        </f:else>
+                            </f:if>
+                                
+
+                                
+
+
+                        </div>
+                    </div>
+                    <!-- normal two column content module -->
+
+                </div>
+            </div>            
+            <!-- two column content -->
+</f:form>
+            <!-- prouduct-listing-teaser -->
+            <div class="element element-gap-Exlarge-max block-section centered-container clearfix">
+                <div class="container container-width-default clearfix">
+
+
+                 <!-- module header -->
+                         <div class="element element-gap-bigger block-section clearfix">
+                            <div class="module-header pull-text-center light clearfix">
+                                 <h2><span>MEHR FÜR DAS FAN-HERZ</span></h2>
+                             </div>
+                        </div>
+                    <!-- module header -->
+
+                    
+                    <div class="prouduct-listing-teaser clearfix">
+                        
+                        <div class="row clearfix equal-row">
+
+                            <!-- col -->
+                        <f:for each="{productdetail.relatedproduct}" key="key" as="relatedproduct">
+
+                            <div class="col-md-4 my-col three-col equal-block">
+                                <div class="main-wrap full-height clearfix">
+                                   
+
+                                   <div class="pruduct-featured-img pull-text-center">
+                                       <div class="table-wrap"><div class="table-cell middle-line">
+                                     <f:if condition="{relatedproduct.image}">
+                                         <f:then>
+                                            <f:for each="{relatedproduct.image}" key="key" as="image"  iteration="fooIterator">
+                                        <f:if condition="{fooIterator.index}==0">
+                                         <f:if condition="{image}">
+                                                <f:image src="{image.uid}" alt=""  height="770" width="836" treatIdAsReference="1" />
+                                              
+                                               </f:if>
+                                        </f:if>
+                                    </f:for>
+                                </f:then>
+                                 <f:else>
+                                    <img src="/fileadmin/templates/Website/Images/noimage.png" alt=""  height="770" width="836"/>
+                                </f:else>
+                            </f:if>
+                                       </div></div>
+                                   </div>
+
+                                   <div class="title pull-text-center">{relatedproduct.title}</div>
+
+                                   <div class="price pull-text-center">
+
+
+                                <f:if condition="{relatedproduct.discountcheckbox}">
+                                    <f:then>
+                                    <f:if condition="{relatedproduct.price}">
+                                                    <div class="the-price old"><f:format.number decimals="2" decimalSeparator=",">relatedproduct.{price}</f:format.number>€</div>
+                                     </f:if>
+                                        <div class="clear"></div>
+
+                                    <f:if condition="{relatedproduct.dprice}">
+                                        <div class="the-price new"><f:format.number decimals="2" decimalSeparator=",">{relatedproduct.dprice}</f:format.number>€</div>
+                                    </f:if>
+                                    </f:then>
+                                    <f:else>
+                                    <f:if condition="{relatedproduct.price}">
+                                                    <div class="the-price new"><f:format.number decimals="2" decimalSeparator=",">{relatedproduct.price}</f:format.number>€</div>
+                                    </f:if>
+                                    </f:else>
+                            </f:if>
+                                    
+                                   </div>
+
+                                   <div class="activity pull-text-center">
+                                     <f:link.action action="detail" class="site-button has-min-width type-two" arguments="{uid:relatedproduct.uid}">
+                                  ANSEHEN
+                                  </f:link.action>
+                                   </div>     
+                                    
+
+                                </div>
+                            </div>
+                            <!-- col -->
+
+                    </f:for>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- prouduct-listing-teaser -->
+<script type="text/javascript">
+    var fcartAjaxUrl = '<f:format.raw><f:uri.action action="fcart" controller="Product" noCache="1" /></f:format.raw>';
+    var addAjaxUrl = '<f:format.raw><f:uri.action action="addcart" controller="Product" noCache="1" /></f:format.raw>';
+</script>
+
+            <!-- overlay cart -->
+            <div class="overlay-cart clearfix" id="fCartContent">
+123
+            </div>
+            <!-- overlay cart -->
+</f:if>
+</f:section>
+</html>

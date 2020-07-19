@@ -1,0 +1,218 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  <f:layout name="Default" />
+
+  This Template is responsible for creating a table of domain objects.
+
+  If you modify this template, do not forget to change the overwrite settings
+  in /Configuration/ExtensionBuilder/settings.yaml:
+    Resources:
+    Private:
+      Templates:
+      List.html: keep
+
+  Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+  <f:section name="content">
+    <!-- Scrollable page content-->
+      <!-- kader module -->
+            <div class="element element-gap-Exlarger block-section centered-container clearfix">
+                  
+                  <div class="container-fluid">
+
+
+                    <!-- module -->
+                    <div class="kader-module clearfix">
+                        
+
+                        <!-- detail view -->
+                                            <div class="link-tab-varient var-1 clearfix">
+                                                <div class="kader-detail-view single-stand clearfix">
+
+
+
+                                                        <!-- detail player secondary info -->
+                                                        <div class="detail-player-secondary-info clearfix">
+
+
+
+                                                            <!-- tab-link-page -->
+                                                            <div class="tab-link-page-module element element-gap-Lessnormal clearfix">
+                                                                <div class="main-wrap">
+
+                                                                    <div class="pull-text-left prev">
+                                                                        <a href="/statistiken/">
+                                                                            <i></i>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                    <div class="pull-text-center active">
+                                                                       
+                                                                            <span>SPIELPLÄNE</span>
+                                                                        
+                                                                    </div>
+
+
+                                                                     <div class="pull-text-right next">
+                                                                        <a href="/kader/">
+                                                                            <i></i>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab-link-page -->
+
+                                                            <!-- tab link -->
+                                                            <div class="info-tab-link-carousel general-carousel element element-gap-Lessnormal">
+                                                                <div class="owl-carousel clearfix">
+                                                              <f:for each="{Spielplaene_data}" iteration="tabilite" as="Spielplaenecomp">       
+                                                                      <div class="item">
+                                                                            <f:if condition="{tabilite.index}==0">
+                                                                                  <f:then>
+                                                                                      <a href="#spielplaenetab{Spielplaenecomp.competition_uid}" class="tab-link tab-link-active">
+                                                                                  </f:then>
+                                                                                  <f:else>
+                                                                                  <a href="#spielplaenetab{Spielplaenecomp.competition_uid}" class="tab-link">
+                                                                                </f:else>
+
+                                                                            </f:if>
+                                                                        <div>
+                                                                            <span>{Spielplaenecomp.competition_title}</span>
+                                                                        </div>
+                                                                                      </a>
+                                                                        </div>
+                                                              </f:for>
+                                                       
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab link -->
+
+
+                                                        <!-- info-tab-body -->
+                                                        <div class="info-tab-body-wrap clearfix">
+
+                                                            <div class="info-tab-body tabs clearfix">
+
+                            <f:for each="{Spielplaene_data}" iteration="tabilite" as="Spielplaenedata">       
+                                                                  <!-- Tab 1, active by default -->
+                     <f:if condition="{tabilite.index}==0">
+                          <f:then>
+                        <div id="spielplaenetab{Spielplaenedata.competition_uid}" class="tab tab-active">
+                         </f:then>
+                         <f:else>
+                        <div id="spielplaenetab{Spielplaenedata.competition_uid}" class="tab">
+
+                       </f:else>
+                     </f:if>
+                                  <div class="content-block">
+                                    <!-- the-tabelle -->
+                                        <div class="tabelle-content-module element element-gap-Exlarge clearfix">
+
+                                            
+                          <f:for each="{Spielplaenedata.data}" key="key" as="data">
+
+                                      <!-- list -->                                            
+                                      <div class="the-tabelle app-view content clearfix">
+
+                                         <div class="tebelle-app-view-team-head">
+                                            <div class="main-wrap">
+                                              <div class="left">{data.dayOfWeek}. <f:format.date format="d.m.Y  H:i">{data.date}</f:format.date> Uhr</div>
+
+                                              <div class="right">
+                                                 <f:if condition="{data.sport_event_status.match_status}==not_started">
+                                                  {data.venue}
+
+                                                </f:if>
+                                                <f:if condition="{data.sport_event_status.match_status}==ended">
+                                                {data.sport_event_status.home_score} : {data.sport_event_status.away_score}
+                                                </f:if>
+
+                                                <f:if condition="{data.sport_event_status.match_status}==cancelled">
+                                                 Cancelled
+                                                </f:if>
+
+                                            </div>
+                                            </div>
+                                         </div>
+
+                                          <!-- schedule -->
+                                                         <div class="next-match-schedule type-two clearfix">
+                                                            <div class="next-match-schedule-board type-two">
+
+                                                                <div class="primary-part part">
+
+                                                                   <div class="type-two"><span>{data.competitors1.name}</span><i>
+                                                                      <img src="{data.competitors1.logo}" width="20">
+                                                                    </i></div>
+                                                                    
+                                                                    <hr>    
+
+                                                                    <div class="type-one"><i>
+                                                                          <img src="{data.competitors2.logo}" width="20">
+                                                                          </i><span>{data.competitors2.name}</span></div>
+
+                                                                  
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>    
+                                          <!-- schdule -->
+                                          <f:if condition="{data.sport_event_status.match_status}==not_started">
+                                          <div class="element clearfix pull-text-center tickting-button-wrap">
+                                          <div>
+                                          <a class="tickting-button" href="#"><i><img src="static/images/tickets-dark.svg" width="20"></i><span>TICKETS</span></a>
+                                          </div>
+                                          <div>
+                                          <a class="tickting-button" href="#"><i><img src="static/images/add-reminder.svg" width="18"></i><span>MERKEN</span></a>
+                                          </div>
+                                          <div>
+                                          <a class="tickting-button" href="#"><i><img src="static/images/casino-chip.svg" width="24"></i><span>bach-Ha</span></a>
+                                          </div>
+                                          <div>
+                                          <a class="tickting-button" href="#"><i><img src="static/images/sky.svg" width="38"></i><span>tickets</span></a>
+                                          </div>
+                                        </div>
+                                      </f:if>
+
+
+                                      </div>
+                                      <!-- list -->
+                          </f:for>
+                               
+                                    </div>
+                                    <!-- the-tabelle -->
+                              </div>
+                        </div>
+                      </f:for>
+                                                                  <!-- Tab 1, active by default -->
+
+                                         <!-- Tab 1, active by default -->
+                                  </div>
+
+                              </div>
+                              <!-- info-tab-body -->
+
+
+                              </div>
+                              <!-- detail player secondary info -->
+
+                      </div>
+                  </div>
+                  <!-- detail view -->
+                          
+
+                    </div>
+                    <!-- module -->
+
+              </div>
+               
+            </div>
+            <!-- kader module -->
+      
+
+
+     </f:section>
+     </html>

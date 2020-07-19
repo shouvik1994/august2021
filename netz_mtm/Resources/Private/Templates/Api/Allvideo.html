@@ -1,0 +1,46 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  <f:layout name="Default" />
+
+  This Template is responsible for creating a table of domain objects.
+
+  If you modify this template, do not forget to change the overwrite settings
+  in /Configuration/ExtensionBuilder/settings.yaml:
+    Resources:
+    Private:
+      Templates:
+      List.html: keep
+
+  Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+  <f:section name="content">
+
+         <div class="element element-gap-normal block-section centered-container clearfix">
+             <div class="container container-width-default clearfix">
+                <div class="video-content-element lg-grid-varient clearfix infinite-scroll-content"> 
+                    <div class="row equal-row clearfix">
+                             <f:for each="{videolist.allvideolist}" key="key" as="videolists" iteration="itertor">
+                                <div class="col-xs-6 equal-block my-col video-list">
+                                       <div class="item">
+                                            <a href="/youtubedetails/{videolists.uid}/">
+                                               <div class="item-img"><img  src="{videolists.image}"  /></div>
+                                                <div class="item-title">{videolists.title}</div>
+                                            </a>
+                                       </div>
+                       			     </div>
+                       	    </f:for>
+            		</div>
+                    <div class="preloader infinite-scroll-preloader"></div>
+
+                </div>
+             </div>  
+            </div>
+
+          <script>
+
+        window.videocount="{videolist.videocount}";
+
+
+        </script>
+
+   </f:section>
+</html>

@@ -1,0 +1,146 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+	<div class="element top-banner-module with-device-height static-banner type-inset clearfix">
+
+
+
+                <!-- carousel -->
+                <div class="element full-height clearfix">    
+    
+
+                        <!-- cell -->
+                        <div class="element full-height clearfix">
+                            <div class="main-wrap full-height block-section clearfix">
+                                <div class="container-fluid full-height clearfix">
+
+                                       <div class="img-holder set-back" style="background-image:url('{settings.base_url_pid}/fileadmin/templates/App/Images/app-start-page-banner.png');"><img src="{settings.base_url_pid}/fileadmin/templates/App/Images/app-start-page-banner.png"></div>
+
+                                       <div class="table-wrap"><div class="table-cell middle-line">
+                                         <div class="content-holder">
+                                            
+                                            <div class="next-match-timing-view element element-gap-Lessnormal">
+
+                                              <div class="heading element element-gap-tiny pull-text-center">NEXT MATCH</div>
+
+                                              <div class="view-time element element-gap-Lessnormal pull-text-center" id="timeleft">
+                                                <div>
+                                                  <span id="leftday"></span>
+                                                  <i>TAGE</i>
+                                                </div>
+                                                <div>
+                                                  <span>:</span>
+                                                </div>
+                                                <div>
+                                                  <span id="lefthours"></span>
+                                                  <i>STUNDEN</i>
+                                                </div>
+                                                <div>
+                                                  <span>:</span>
+                                                </div>
+                                                <div>
+                                                  <span id="leftmin"></span>
+                                                  <i>MINUTEN</i>
+                                                </div>
+                                              </div>
+
+                                              <!-- schedule -->
+                                              <div class="table-match-schedule-module clearfix element element-gap-normal">
+                                                <div class="next-match-schedule">
+
+                                                  <div class="row schedule-app-tag element element-gap-tiny">
+                                                    <div class="col-xs-6 my-col pull-text-left">
+                                                      {next_match.dayOfWeek}. <f:format.date format="d.m.Y - H:i">{next_match.date}</f:format.date> Uhr
+                                                    </div>
+                                                     <div class="col-xs-6 my-col pull-text-right">
+                                                      {next_match.venue},{next_match.city}
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="next-match-schedule-board type-one has-secondary-part">
+
+                                            
+
+
+
+                                                      <div class="primary-part part clearfix">  
+                                                       <f:for each="{next_match.competitors}" iteration="iterator" as="competitor">  
+                                                <f:if condition="{iterator.cycle}== 1">
+                                                <div class="type-one"><i>
+                                                <f:if condition="{competitor.logo}">
+                                                <f:image src="{competitor.logo.uid}" alt="" treatIdAsReference="1" width="28" absolute="1" />
+                                                </f:if>
+                                                </i><span>{competitor.name}</span></div>
+                                                <hr> 
+                                                </f:if>
+                                                
+                                     
+                                                <f:if condition="{iterator.cycle}== 2">   
+                                                <div class="type-two"><span>{competitor.name}</span><i>
+                                                <f:if condition="{competitor.logo}">
+                                                <f:image src="{competitor.logo.uid}" alt="" treatIdAsReference="1" width="28" absolute="1"/>
+                                                </f:if>
+                                                </i></div>
+                                            </f:if>
+                                            </f:for>  
+                                                         <!--  <div class="type-one"><i><img src="http://p551477.mittwaldserver.info/fileadmin/templates/App/Images/MT-Logo-colored.png" width="28"></i><span>MT Melsungen</span></div>
+                                                          
+                                                          <hr>    
+
+                                                          <div class="type-two"><span>Rhein-Neckar</span><i><img src="http://p551477.mittwaldserver.info/fileadmin/templates/App/Images/Ludwigshafen-team-logo.png" width="28"></i></div> -->
+                                                      </div>
+
+                                                  
+                                                 
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <!-- schdule -->
+
+                                        <div class="element clearfix pull-text-center">
+                                          <a class="tickting-button" href="/tickets/"><i><img src="{settings.base_url_pid}/fileadmin/templates/App/Images/tickets-dark.svg" width="30"></i><span>TICKETS</span></a>
+                                        </div>
+
+                                            </div>
+
+                                         </div>
+                                       </div></div>
+
+                                        
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- cell -->
+
+                        
+
+
+
+
+
+                </div>
+                <!-- carousel -->
+
+            </div>
+               <script>
+
+				window.eventDate = "{next_match.date}";
+
+
+				</script>
+	   </f:section>
+	   </html>
+	

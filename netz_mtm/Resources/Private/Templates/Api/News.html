@@ -1,0 +1,194 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  <f:layout name="Default" />
+
+  This Template is responsible for creating a table of domain objects.
+
+  If you modify this template, do not forget to change the overwrite settings
+  in /Configuration/ExtensionBuilder/settings.yaml:
+    Resources:
+    Private:
+      Templates:
+      List.html: keep
+
+  Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+  <f:section name="content">
+
+                  
+
+                    <div class="info-tab-body tabs clearfix">
+
+                         <!-- Tab 1, active by default -->
+                          <div id="news" class="tab tab-active">
+                              <div class="content-block">
+                                 <!-- news listing module -->
+                                      <div class="news-listing-module clearfix">
+
+                                          
+
+                                          <!-- filter -->
+                                          <div class="news-list-filter element element-gap-normal">
+
+                                              
+                                              <!-- row -->
+                                              <div class="filter-button-row">
+                                                  <div class="row">
+
+                                                      <div class="col-xs-6 my-col pull-text-left no-top-margin">
+                                                          <div class="custom-inputText-block">
+                                                              <input type="text" readonly="readonly" class="news-list-datepicker" id="news-list-datepicker">
+                                                              <a class="site-button with-calender" href="#">ZEITRAUM</a>
+                                                          </div>
+                                                      </div>
+
+                                                      <div class="col-xs-6 my-col pull-text-right no-top-margin">
+                                                          <div class="filter-search-filed">
+                                                              <div class="menu-item-dropdown">
+                                                                  <div class="search-dropdown-trigger dropdown-toggle" id="filter-news-type-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                                      <a class="site-button with-search" href="#">SUCHEN</a>
+                                                                   </div>
+
+                                                                   <div class="menu-dropdown menu-dropdown-right">
+                                                                   <div class="form-group">
+                                                                      <input type="text" class="form-control" placeholder="Search">
+                                                                  </div>
+                                                                  <div class="form-group no-bottom-margin">
+                                                                  <a class="site-button danger"><span>Submit</span></a>
+                                                                   </div>
+                                                                  </div> 
+                                                               </div>   
+                                                          </div>
+                                                      </div>
+
+                                                  </div>
+                                              </div>
+                                              <!-- row -->
+
+                                               <!-- row -->
+                                              <div class="filter-button-row">
+                                                  <div class="row">
+
+                                                      <div class="col-md-12 my-col pull-text-center no-top-margin">
+                                                         <div class="news-tags">
+
+                                                            <div class="danger-tag"><span>BUNDESLIGA</span></div>
+
+                                                             <div class="pretty-tag"><span>EUROPAPOKAL</span></div>
+
+                                                             <div class="copper-tag"><span>DHB-POKAL</span></div>
+
+                                                             <div class="success-tag"><span>TALENTS</span></div>
+
+                                                             <div class="Lightsuccess-tag"><span>SOZIALES</span></div>
+
+                                                             <div class="grey-tag"><span>SPONSOREN</span></div>
+
+                                                         </div>
+                                                      </div>
+
+                                                  </div>
+                                              </div>
+                                              <!-- row -->
+
+
+                                          </div>
+                                          <!-- filter -->
+                                              
+
+                                          <!-- listing -->
+                                          <div class="the-listing element element-gap-normal clearfix">
+
+                                              <div class="row clearfix">
+
+                                                      
+                                                      <!-- col -->
+                                                      <div class="col-md-12 my-col two-col">
+                                                          <a href="#">
+                                                              <div class="main-wrap clearfix">
+
+                                                                  <div class="featured-img">
+
+                                                                      <div class="img-holder"><img src="static/images/news-listing-featured.png" height="404" width="630"></div>
+                                                                  </div>
+
+                                                                  <div class="news-date"><span>20.02.2020</span></div>
+
+                                                                  <div class="news-title">
+                                                                  LOREM IPSUM CATATEM DIS MOIS ES HOMBRES DES DOLORES EST DIMA
+                                                                  </div>
+
+                                                              </div>
+                                                          </a>
+                                                      </div>
+                                                      <!-- col -->
+
+                                                      <!-- col -->
+                                                      <div class="col-md-12 my-col two-col">
+                                                          <a href="#">
+                                                              <div class="main-wrap clearfix">
+
+                                                                  <div class="featured-img">
+                                                                      
+
+                                                                      <div class="img-holder"><img src="static/images/news-listing-featured.png" height="404" width="630"></div>
+                                                                  </div>
+
+                                                                  <div class="news-date"><span>20.03.2020</span></div>
+
+                                                                  <div class="news-title">
+                                                                  LOREM IPSUM CATATEM DIS MOIS ES HOMBRES DES DOLORES EST DIMA
+                                                                  </div>
+
+                                                                
+
+                                                              </div>
+                                                          </a>
+                                                      </div>
+                                                      <!-- col -->
+
+                                                      <!-- col -->
+                                                      <div class="col-md-12 my-col two-col">
+                                                          <a href="#">
+                                                              <div class="main-wrap clearfix">
+
+                                                                  <div class="featured-img">
+                                                                      
+                                                                      <div class="img-holder"><img src="static/images/news-listing-featured.png" height="404" width="630"></div>
+                                                                  </div>
+
+                                                                  <div class="news-date"><span>20.04.2020</span></div>
+
+                                                                  <div class="news-title">
+                                                                  LOREM IPSUM CATATEM DIS MOIS ES HOMBRES DES DOLORES EST DIMA
+                                                                  </div>
+
+                                                                 
+
+                                                              </div>
+                                                          </a>
+                                                      </div>
+                                                      <!-- col -->
+                                                </div>
+
+                                              
+                                          </div>
+                                          <!-- listing -->
+
+                                          <!-- alllink -->
+                                          <div class="module-all-link pull-text-center"><a class="site-button with-down-arrow" href="#"><span>MEHR LADEN</span></a></div>
+                                          <!-- alllink -->
+
+
+
+                                      </div>
+                        <!-- news listing module -->
+                               </div>
+                          </div>
+                         <!-- Tab 1, active by default -->
+
+                     </div>
+                 
+                  
+
+   </f:section>
+</html>

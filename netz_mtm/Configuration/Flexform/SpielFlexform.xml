@@ -1,0 +1,27 @@
+<T3DataStructure>
+	<sheets> 
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:netz_mtm/Resources/Private/Language/locallang_db.xlf:flexforms_tab.settings</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+						<settings.spielcompetitions>
+						<TCEforms>
+							<label>LLL:EXT:netz_mtm/Resources/Private/Language/locallang_db.xlf:flexform.competition</label>
+						<config>
+							<type>select</type>
+							<foreign_table>tx_netzmtm_domain_model_competition</foreign_table>
+							<minitems>0</minitems>
+							<maxitems>99999</maxitems>
+							</config>		
+						</TCEforms>
+					</settings.spielcompetitions>
+
+				
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

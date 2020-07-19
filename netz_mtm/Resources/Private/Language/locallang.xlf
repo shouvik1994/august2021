@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-04-23T09:47:51Z" product-name="netz_mtm">
+		<header/>
+		<body>
+			<trans-unit id="tx_netzmtm_domain_model_partner">
+				<source>Partner</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.telephone">
+				<source>Telephone</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.info">
+				<source>Info</source>
+			</trans-unit>
+
+			<trans-unit id="position.RB">
+				<source>Right Back</source>
+			</trans-unit>
+			<trans-unit id="position.P">
+				<source>Playmaker</source>
+			</trans-unit>
+			<trans-unit id="position.LW">
+				<source>Left Wing</source>
+			</trans-unit>
+			<trans-unit id="position.CB">
+				<source>Center Back</source>
+			</trans-unit>
+			<trans-unit id="position.G">
+				<source>Goalkeeper</source>
+			</trans-unit>
+			<trans-unit id="position.LB">
+				<source>Left Back</source>
+			</trans-unit>
+			<trans-unit id="position.RB">
+				<source>Right Back</source>
+			</trans-unit>
+			<trans-unit id="position.RW">
+				<source>Right Wing</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

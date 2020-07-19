@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-05-07T14:05:29Z" product-name="netz_mtm">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="sdate.description">
+				<source>sdate</source>
+			</trans-unit>
+			<trans-unit id="edate.description">
+				<source>edate</source>
+			</trans-unit>
+			<trans-unit id="year.description">
+				<source>year</source>
+			</trans-unit>
+			<trans-unit id="apikey.description">
+				<source>apikey</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

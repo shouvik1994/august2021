@@ -1,0 +1,85 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+	   <!-- team module -->
+            <div class="element element-gap-big block-section centered-container clearfix">
+                <div class="container container-width-default clearfix">
+
+                       
+                       <!-- module header -->
+                         <div class="element element-gap-big block-section clearfix">
+                            <div class="module-header pull-text-center clearfix">
+                                 <h3><span>Deine Ansprechpartner</span></h3>
+                             </div>
+                        </div>
+                        <!-- module header -->
+
+                        <!-- module -->
+                        <div class="team-member-module max-lg-grid-varient clearfix">
+                            <div class="row clearfix">
+
+                                <f:for each="{partners}" key="key" as="partner">
+                                    <!-- col -->
+                                    <div class="col-md-4 my-col three-col">
+                                        <div class="main-wrap clearfix">
+                                            
+                                            <div class="dp">
+                                            	<f:if condition="{partner.image}">
+                                                <f:then>
+                                            	<f:image src="{partner.image.uid}" alt="" treatIdAsReference="1" />
+                                                </f:then>
+                                                <f:else>
+                                                <img src="fileadmin/templates/Website/Images/noimage.png"  width="808" height="672">
+                                               </f:else>
+                                               </f:if>
+                                            </div>
+
+                                            <div class="excerpt">
+                                                <div class="holder">
+                                                    <div class="primary-info">
+                                                        <div class="name">{partner.title} {partner.lastname}</div>
+                                                        <div class="role">{partner.position}</div>
+                                                    </div>
+                                                    <div class="secondary-info">
+                                                    	 <f:if condition="{partner.telephone}">
+                                                        <div><i><img src="fileadmin/templates/Website/Images/telephone.svg" width="32"></i><span>Telefon: <a href="tel: {partner.telephone}">{partner.telephone}</a></span></div>
+                                                        </f:if>
+                                                    	 <f:if condition="{partner.email}">
+                                                        <div><i><img src="fileadmin/templates/Website/Images/paper-plane.svg" width="32"></i><span><a href="mailto: {partner.email}">{partner.email}</a></span></div>
+                                                       </f:if>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- col -->
+                                </f:for>
+
+                                 
+
+
+                            </div>
+                        </div>
+                        <!-- module -->
+
+
+                </div>
+            </div>
+            <!-- team module -->
+		
+	</f:section>
+</html>

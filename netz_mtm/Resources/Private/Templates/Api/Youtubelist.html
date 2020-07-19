@@ -1,0 +1,158 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+	<div class="element element-gap-Exlarger block-section centered-container clearfix">
+            <div class="container-fluid">
+               <!-- module -->
+               <div class="kader-module clearfix">
+                  <!-- tab link -->
+                  <div class="link-tab-varient var-1 clearfix element element-gap-normal">
+                    <div class="info-tab-link-carousel general-carousel element element-gap-Lessnormal">
+                       <div class="owl-carousel clearfix">
+                         
+                          <div class="item">
+                             <a href="/social/" class="tab-link">
+                                <div>
+                                   <span>NEWS</span>
+                                </div>
+                             </a>
+                          </div>
+                           <div class="item">
+                             <a href="/kalender/" class="tab-link">
+                                <div>
+                                   <span>KALENDER</span>
+                                </div>
+                             </a>
+                          </div>
+                           <div class="item">
+                             <a href="#video-tab" class="tab-link tab-link-active">
+                                <div>
+                                   <span>Videos</span>
+                                </div>
+                             </a>
+                          </div>
+                       </div>
+                    </div>
+                  </div>
+                  <!-- tab link -->
+
+                  <!-- info-tab-body -->
+                  <div class="info-tab-body-wrap clearfix">
+
+                    <div class="info-tab-body tabs clearfix">
+
+                         <!-- Tab 1, active by default -->
+                          <div id="video-tab" class="tab tab-active">
+                              <div class="content-block">
+                                  <!-- module header -->
+                                  <div class="element element-gap-Biggertiny block-section centered-container clearfix">
+                                   <div class="container container-width-default clearfix">
+                                      <div class="module-header pull-text-center light clearfix">
+                                          <h2><span>Video Highlights</span></h2>
+                                      </div>
+                                   </div>  
+                                  </div>
+                                  <!-- module header -->
+                    <f:for each="{videos.videolist}" key="key" as="videolists">
+
+                                  <!-- video element -->
+                                  <div class="video-content-element element element-gap-Lgnormal clearfix">
+                    
+                                        <div class="row clearfix">
+
+                                            <!-- col -->
+                                            <div class="col-md-12 my-col no-top-margin element element-gap-Biggertiny">
+                                                <div class="main-wrap clearfix">
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{videolists.videoid}?rel=0" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                            <!-- col -->
+
+                                             <!-- col -->
+                                            <div class="col-md-12 my-col no-top-margin">
+                                                <div class="main-wrap clearfix">
+                                                    <div class="entry clearfix">
+                                                         <h5>{videolists.title}</h5>
+                                                          <p><f:format.crop maxCharacters="250">{videolists.des}</f:format.crop></p>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                            <!-- col -->
+
+
+                                        </div>
+
+                                  </div>
+
+                    </f:for>
+                                  <!-- video element -->
+
+                                
+                               <!-- video slider module -->
+                    <div class="video-slider-module clearfix">
+                         <!-- module header -->
+                            <div class="element element-gap-normal block-section clearfix">
+                            
+                                <div class="module-header pull-text-center light clearfix">
+                                    <h2><span>AKTUELLE VIDEOS</span></h2>
+                                </div>
+                           
+                            </div>
+                        <!-- module header -->
+
+                        <!-- items -->
+                        <div class="video-items-in-carousel general-carousel element element-gap-normal clearfix">
+                            <div class="owl-carousel">
+                                 <f:for each="{videos.slider_part}" key="key" as="sliderpart">
+                                    <div class="item">
+                                        <a href="/youtubedetails/{sliderpart.uid}/">
+                                            <div class="item-img"><img src="{sliderpart.image}" width="694px" height="414px"></div>
+                                            <div class="item-title">{sliderpart.title}</div>
+                                        </a>
+                                    </div>
+
+                                  </f:for>
+
+                                    
+            
+                            </div>
+                        </div>
+                        <!-- items -->
+
+                        <!-- load-more -->
+                            <div class="load-more pull-text-center clearfix"><a class="site-button with-arrow" href="/allvideo/"><span>ALLE VIDEOS</span></a></div>
+                        <!-- load more -->
+
+                    </div>
+                    <!-- video slider module -->
+
+                               </div>
+                          </div>
+                         <!-- Tab 1, active by default -->
+
+
+                    </div>
+                  </div>
+                  <!-- info-tab-body -->
+
+               </div>
+               <!-- module -->
+            </div>
+         </div>
+         <!-- kader module -->
+	   </f:section>
+	   </html>

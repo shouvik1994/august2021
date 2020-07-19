@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-04-23T09:47:51Z" product-name="netz_mtm">
+		<header/>
+		<body>
+			<trans-unit id="tx_netzmtm_domain_model_partner">
+				<source>Partner</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.title">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.lastname">
+				<source>Lastname</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.telephone">
+				<source>Telephone</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_partner.info">
+				<source>Info</source>
+			</trans-unit>
+			<trans-unit id="tx_netz_mtm_list.name">
+				<source>list</source>
+			</trans-unit>
+			<trans-unit id="tx_netz_mtm_list.description">
+				<source></source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_tab.settings">
+				<source>Settings</source>
+			</trans-unit>
+			<trans-unit id="flexform.youtubeview">
+				<source>View</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.competition">
+				<source>Competition</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_team">
+				<source>Team</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_team.title">
+				<source>Team name</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_team.image">
+				<source>Logo</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_team.teamapikey">
+				<source>Api Id</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_player">
+				<source>Player</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_player.firstname">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.lastname">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.playerapikey">
+				<source>Player Api Id</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.playernumber">
+				<source>Jersey Number</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.pimage">
+				<source>Player Profile Image</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_player.signimage">
+				<source>Signature</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.nationlity">
+				<source>Nationlity</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.dob">
+				<source>Date Of Birth</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.joiningdate">
+				<source>Joining Date</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.weight">
+				<source>Weight</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.size">
+				<source>Height</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.previousclub">
+				<source>Previous Club</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.fblink">
+				<source>Facebook Link</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_player.inslink">
+				<source>Instagram Link</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_player.listimages">
+				<source>Thumbnail Image</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_youtube.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_youtube.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_youtube.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_youtube.videoid">
+				<source>Video Id</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_youtube">
+				<source>Youtube</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_youtube.pdate">
+				<source>Published Date</source>
+			</trans-unit>
+			
+			<trans-unit id="task.youtube.title">
+				<source>Youtube</source>
+			</trans-unit>
+
+			<trans-unit id="task.youtube.description">
+				<source>Youtube</source>
+			</trans-unit>
+
+			<trans-unit id="task.youtube.description">
+				<source>Youtube</source>
+			</trans-unit>
+
+			<trans-unit id="task.youtube.youtubeChannelId">
+				<source>Youtube Channel Id</source>
+			</trans-unit>
+
+			<trans-unit id="task.youtube.youtubeKey">
+				<source>Youtube Key</source>
+			</trans-unit>
+			
+			<trans-unit id="task.sportradar.accessLevel">
+				<source>Sportradar Access Level</source>
+			</trans-unit>
+			<trans-unit id="task.sportradar.sportradarKey">
+				<source>Sportradar Key</source>
+			</trans-unit>
+			<trans-unit id="task.sportradar.competitorId">
+				<source>Competitor Id</source>
+			</trans-unit>
+			<trans-unit id="task.sportradar.title">
+				<source>Sportradar</source>
+			</trans-unit>
+			<trans-unit id="task.sportradar.description">
+				<source>Sportradar</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_competition">
+				<source>Competition</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_competition.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_competition.apikey">
+				<source>Api Id</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_competition.season">
+				<source>Season</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_season">
+				<source>Season</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_season.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_season.sdate">
+				<source>Start Date</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_season.edate">
+				<source>End Date</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_season.year">
+				<source>Year</source>
+			</trans-unit>
+			<trans-unit id="tx_netzmtm_domain_model_season.apikey">
+				<source>Api Id</source>
+			</trans-unit>
+
+			<trans-unit id="tx_netzmtm_domain_model_player.sponsor">
+				<source>Sponsor</source>
+			</trans-unit>
+			<trans-unit id="color">
+				<source>Color</source>
+			</trans-unit>
+			<trans-unit id="flexform.detail_page">
+				<source>Details Page</source>
+			</trans-unit>
+			<trans-unit id="flexform.category">
+				<source>News Category</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

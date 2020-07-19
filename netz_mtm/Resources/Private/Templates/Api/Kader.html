@@ -1,0 +1,970 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+    <!-- Scrollable page content-->
+
+      <!-- kader module -->
+            <div class="element element-gap-Lgnormal block-section centered-container clearfix">
+                  
+                  <div class="container-fluid clearfix">
+
+
+                    <!-- module -->
+                    <div class="kader-module clearfix">
+                        
+
+                        <!-- detail view -->
+                                            <div class="link-tab-varient element element-gap-Lgnormal var-1 clearfix">
+                                                <div class="kader-detail-view single-stand clearfix">
+
+
+
+                                                        <!-- detail player secondary info -->
+                                                        <div class="detail-player-secondary-info clearfix">
+
+
+
+                                                            <!-- tab-link-page -->
+                                                            <div class="tab-link-page-module element element-gap-Lessnormal clearfix">
+                                                                <div class="main-wrap">
+
+                                                                    <div class="pull-text-left prev">
+                                                                        <a href="/spielplaene/">
+                                                                            <i></i>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                    <div class="pull-text-center active">
+                                                                       
+                                                                            <span>KADER</span>
+                                                                        
+                                                                    </div>
+
+
+                                                                     <div class="pull-text-right next">
+                                                                        <a href="/matchcenter/">
+                                                                            <i></i>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab-link-page -->
+
+                                                            
+
+
+                                                      
+
+
+                                                        </div>
+                                                        <!-- detail player secondary info -->
+
+                                                </div>
+                                            </div>
+                                            <!-- detail view -->
+
+
+                                            <!-- kader main module -->
+                    <div class="kader-module max-lg-grid-varient clearfix">
+
+                    <f:for each="{kader_data}" key="key" as="kaderdata">
+
+                            <!-- repeat -->
+                            <div class="row repeat-row element element-gap-Lgnormal clearfix">
+                              <f:for each="{kaderdata}" key="key" as="kaderdatas">
+
+
+                                <!-- col -->
+                                <div class="col-xs-6 my-col kader-thumb no-top-margin trigger-initiate-back-link">
+                                     <a href="#kader{kaderdatas.uid}" class="tab-link">
+                                    <div class="main-wrap">
+
+                                        <div class="dp">
+                                              <f:if condition="{kaderdatas.listimages}">
+                                                        <f:then>
+                                                                <img src="{kaderdatas.listimages}" width="354" height="380"/>
+                                                        </f:then>
+                                                        <f:else>
+                                                                <img src="{settings.base_url_pid}/fileadmin/templates/Website/Images/noimage.png"  width="354" height="380"/>
+                                                        </f:else>
+                                                </f:if>
+
+                                            <!--<img src="static/images/kader-thumb.png">-->
+                                        </div>
+
+                                        <div class="info">
+                                        <div class="table-wrap"><div class="table-cell bottom-line">
+                                            <div class="excerpt">
+                                                
+                                                <div class="number">{kaderdatas.playernumber}</div>
+
+                                                <div class="name">
+                                                    <div class="primary">
+                                                    {kaderdatas.firstname}<br>
+                                                    {kaderdatas.lastname}
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div></div>    
+                                        </div>           
+
+                                    </div>
+                                   
+
+                                   </a>         
+                                </div>
+                                <!-- col -->
+
+
+                        </f:for>
+
+
+                               
+
+
+                              
+                               <!-- col detail -->
+                               <div  class="col-md-12 my-col kader-detail-wrap no-top-margin">
+                                    <div class="main-wrap tabs clearfix">
+                                <f:for each="{kaderdata}" key="key" as="kaderdatas">
+
+                                          <!-- detail view -->
+                                            <div id="kader{kaderdatas.uid}" class="tab kader-detail-in-tab-body">
+                                                <div class="kader-detail-view single-stand-no-bottom clearfix">
+
+                                                        
+
+                                                        <!-- detail player primary info -->
+                                                        <div class="detail-player-primary-info element element-gap-normal clearfix">
+
+
+                                                            <!-- primary-info-body -->
+                                                            <div class="row primary-info-body clearfix">
+
+                                                                <!-- col -->
+                                                                <div class="col-md-4 my-col two-col element element-gap-normal">
+                                                                    <div class="main-wrap clearfix">
+                                                                        <!-- img -->
+                                                                        <div class="player-img">
+                                                                             <f:if condition="{kaderdatas.pimage}">
+                                                                                    <f:then>
+                                                                                            <img src="{kaderdatas.pimage}" width="185"/>
+                                                                                    </f:then>
+                                                                                    <f:else>
+                                                                                            <img src="{settings.base_url_pid}/fileadmin/templates/Website/Images/noimage.png"  width="185"/>
+                                                                                    </f:else>
+                                                                            </f:if>
+                                                                            <!--<img src="static/images/kader-full.png" width="185">-->
+                                                                        </div>
+                                                                        <!-- img -->
+
+                                                                        <!-- kader-brand -->
+                                                               
+                                                                        <div class="kader-brand">
+                                                                             <f:if condition="{kaderdatas.sponsor}">
+                                                                                            <img src="{kaderdatas.sponsor}" width="140"/>
+                                                                                    
+                                                                            </f:if>
+                                                                            <!--<img src="static/images/kader-brand.png" width="140">-->
+                                                                        </div>
+                                                                 
+                                                                       <!-- kader-brand -->
+
+                                                                    </div>
+                                                                </div>
+                                                                <!-- col -->
+
+                                                                <!-- col -->
+                                                                <div class="col-md-8 my-col two-col no-top-margin">
+                                                                    <div class="main-wrap clearfix">
+
+                                                                        <!-- name and number -->
+                                                                           <div class="name-number element element-gap-Lessnormal">
+
+                                                                               <div class="name">
+                                                                                <div class="primary">{kaderdatas.firstname} {kaderdatas.lastname}</div>
+                                                                                <div class="secondary"> 
+                                                                                    <f:translate key="position.{kaderdatas.position}" /></div>
+                                                                               </div>
+                                                                                
+
+                                                                                <div class="number pull-text-right">
+                                                                                {kaderdatas.playernumber}
+                                                                                </div>
+
+                                                                           </div>
+
+                                                                        <!-- name and number -->
+
+                                                                        <!-- carrier board -->
+                                                                        <div class="carrier-board table-responsive">
+
+                                                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                                                
+                                                                                <f:if condition="{kaderdatas.dob}">
+
+                                                                                <tr>
+                                                                                    <td>Geboren</td>
+                                                                                    <td>
+                                                                                     <f:format.date format="d.m.y">{kaderdatas.dob}</f:format.date>
+
+                                                                                    </td>
+                                                                                </tr>
+                                                                               </f:if>
+                                                                                <f:if condition="{kaderdatas.size}">
+                                                                                 <tr>
+                                                                                    <td>Grösse</td>
+                                                                                    <td>{kaderdatas.size} cm</td>
+                                                                                </tr>
+                                                                               </f:if>
+                                                                               <f:if condition="{kaderdatas.weight}">
+
+                                                                                 <tr>
+                                                                                    <td>Gewicht</td>
+                                                                                    <td>{kaderdatas.weight} kg</td>
+                                                                                </tr>
+                                                                            </f:if>
+                                                                             <f:if condition="{kaderdatas.nationlity}">
+
+                                                                                <tr>
+                                                                                    <td>NATIONALITÄT</td>
+                                                                                    <td> 
+                                                                                    <f:if condition="{kaderdatas.nationlity}==Germany">
+                                                                                    <f:then>
+                                                                                    Deutsch
+                                                                                    </f:then>
+                                                                                    <f:else>
+                                                                                    {kaderdatas.nationlity}
+                                                                                    </f:else>
+                                                                                    </f:if></td>
+                                                                                </tr>
+
+                                                                            </f:if>
+                                                                            <f:if condition="{kaderdatas.joiningdate}">
+
+                                                                                <tr>
+                                                                                    <td>BEI DER MT SEIT</td>
+                                                                                    <td><f:format.date format="Y">{kaderdatas.joiningdate}</f:format.date></td>
+                                                                                </tr>
+                                                                            </f:if>
+                                                                            <f:if condition="{kaderdatas.previousclub}">
+                                                                                 <tr>
+                                                                                    <td>Vorheriger Verein</td>
+                                                                                    <td>{kaderdatas.previousclub}</td>
+                                                                                </tr>
+                                                                            </f:if>
+
+                                                                                
+                                                                            </table>      
+
+                                                                        </div>
+                                                                        <!-- carrier board -->
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <!-- col -->
+
+
+                                                            </div>
+                                                            <!-- primary-info-body -->
+
+                                                            <!-- primary-info-footer -->
+                                                            <div class="row primary-info-footer element element-gap-normal clearfix">
+
+                                                                   
+                                                                
+
+                                                                <!-- col -->
+                                                                <div class="col-md-8 my-col two-col">
+                                                                    <div class="main-wrap clearfix flex-row flex-vertical">
+                                                                       
+                                                                            
+                                                                            <div class="kader-social my-col">
+                                                                                <f:if condition="{kaderdatas.fblink}">
+                                                                                 <f:link.external uri="{kaderdatas.fblink}"  class="link external" target="_system"><img src="static/images/facebook.svg" width="30"></f:link.external>
+                                                                               </f:if>
+                                                                                <f:if condition="{kaderdatas.inslink}">
+                                                                                <f:link.external uri="{kaderdatas.inslink}" class="link external" target="_system"><img src="static/images/insta.svg" width="30"></f:link.external>
+                                                                                </f:if>
+                                                                            </div>
+                                                                            <f:if condition="{kaderdatas.signimage}">
+                                                                            <div class="kader-activity-link pull-text-right my-col">
+                                                                            <a href="{kaderdatas.signimage}" target="_system" class="link external site-button"><span>AUTOGRAMMKARTE</span></a>
+                                                                            </div>
+                                                                           </f:if>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <!-- col -->
+
+
+
+                                                            </div>
+                                                            <!-- primary-info-footer -->
+
+
+
+                                                        </div>
+                                                        <!-- detail player primary info -->
+
+                                                        <!-- detail player secondary info -->
+                                                        <div class="detail-player-secondary-info clearfix">
+
+                                                            <!-- tab link -->
+                                                            <div class="info-tab-link-carousel generic-varient general-carousel element element-gap-Lessnormal">
+                                                                <div class="owl-carousel clearfix">
+                                                                      
+                                                                      <div class="item">
+                                                                          <a href="#kader{kaderdatas.uid}tab-icon-1" class="tab-link tab-link-active">  
+                                                                              <div>
+                                                                                <i>
+                                                                                    <img src="static/images/goal-light.svg" class="normal-img">
+                                                                                    <img src="static/images/goal-danger.svg" class="active-img">
+                                                                                </i>
+                                                                                <span>TORE</span>
+                                                                              </div>
+                                                                          </a>
+                                                                      </div>
+                                                                    <f:if condition="{kaderdatas.position}==G">
+                                                                       <div class="item">
+                                                                          <a href="#kader{kaderdatas.uid}tab-icon-2" class="tab-link">  
+                                                                              <div>
+                                                                                <i>
+                                                                                    <img src="static/images/football-light.svg" class="normal-img">
+                                                                                    <img src="static/images/football-danger.svg" class="active-img">
+                                                                                </i>
+                                                                                <span>WÜRFE</span>
+                                                                              </div>
+                                                                          </a>
+                                                                      </div>
+
+                                                                    </f:if>
+
+                                                                      <div class="item">
+                                                                        <a href="#kader{kaderdatas.uid}tab-icon-3" class="tab-link">   
+                                                                          <div>
+                                                                            <i>
+                                                                                <img src="static/images/handball-court-light.svg" class="normal-img">
+                                                                                <img src="static/images/handball-court-danger.svg" class="active-img">
+                                                                            </i>
+                                                                            <span>TECHNIK</span>
+                                                                          </div>
+                                                                          </a>
+                                                                      </div>
+
+                                                                      <div class="item">
+                                                                         <a href="#kader{kaderdatas.uid}tab-icon-4" class="tab-link">   
+                                                                          <div>
+                                                                            <i>
+                                                                                <img src="static/images/red-card-light.svg" class="normal-img">
+                                                                                <img src="static/images/red-card-danger.svg" class="active-img">
+                                                                            </i>
+                                                                            <span>STRAFEN</span>
+                                                                          </div>
+                                                                          </a>
+                                                                      </div>
+
+                                                                      <div class="item">
+                                                                          <a href="#kader{kaderdatas.uid}tab-icon-5" class="tab-link">   
+                                                                          <div>
+                                                                            <i>
+                                                                                <img src="static/images/running-light.svg" class="normal-img">
+                                                                                <img src="static/images/running-danger.svg" class="active-img">
+                                                                            </i>
+                                                                            <span>LEISTUNG</span>
+                                                                          </div>
+                                                                          </a>
+                                                                      </div>  
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab link -->
+
+
+                                                        <!-- info-tab-body -->
+                                                        <div class="info-tab-body-wrap clearfix">
+
+                                                            <div class="info-tab-body tabs clearfix">
+                                                                
+                                                                <!-- Tab 1, active by default -->
+                                                                    <div id="kader{kaderdatas.uid}tab-icon-1" class="tab tab-active">
+                                                                      <div class="content-block">
+                                                                          <div class="tabelle-content-module clearfix">                                            
+                                                                            <div class="the-tabelle content clearfix">
+                                                                                <div class="clearfix table-responsive">
+                                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                                    
+                                                                                    <!-- thead -->
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Datum</th>
+                                                                                            <th>zeit</th>
+                                                                                            <th>VS.</th>
+                                                                                            <th>7M</th>
+                                                                                            <th>T</th>
+                                                                                            <th>FT</th>
+                                                                                        
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <!-- thead -->
+
+                                                                                    <!-- tbody -->
+                                                                                    <tbody>
+                                                                                       
+                                                                                        <f:for each="{kaderdatas.tabledata}" key="key" as="tabledata">
+                                                                                        <tr>
+
+                                                                                            <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td class="team-iconi-td">
+
+                                                                                                <div class="tabelle-team-info">
+                                                                                                <i>
+                                                                                                <img src="{tabledata.logo}">
+
+                                                                                                </i>
+                                                                                                <span>{tabledata.competitorsname}
+                                                                                                
+                                                                                                </span>
+                                                                                                </div>
+                                                                                                </td>
+                                                                                            <td>
+                                                                                            <f:if condition="{tabledata.statistic.seven_m_goals}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.seven_m_goals}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.goals_scored}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.goals_scored}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.field_goals}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.field_goals}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+                                                                                          
+                                                                                            
+                                                                                           
+
+                                                                                        </tr>
+                                                                                    </f:for>
+                                                                                </tbody>
+                                                                                     
+
+                                                                                </table>
+                                                                                </div>
+                                                                                        
+                                                                            </div>
+                                                                            </div>
+                                                                            <!-- the-tabelle -->
+
+                                                                      </div>
+                                                                    </div>
+                                                                  <!-- Tab 1, active by default -->
+                                                                <f:if condition="{kaderdatas.position}==G">
+                                                                   <!-- Tab 1, active by default -->
+                                                                    <div id="kader{kaderdatas.uid}tab-icon-2" class="tab">
+                                                                      <div class="content-block">
+                                                                         <div class="tabelle-content-module clearfix">                                            
+                                                                            <div class="the-tabelle content clearfix">
+                                                                                <div class="clearfix table-responsive">
+                                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                                    
+                                                                                    <!-- thead -->
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Datum</th>
+                                                                                            <th>zeit</th>
+                                                                                            <th>VS.</th>
+                                                                                            <th>P</th>
+                                                                                            <th>GW</th>
+                                                                                            <th>GT</th>
+                                                                                            <th>SA</th>
+                                                                                            <th>GMP</th>
+                                                                                        
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <!-- thead -->
+
+                                                                                    <!-- tbody -->
+                                                                                    <tbody>
+                                                                                       
+                                                                                        <f:for each="{kaderdatas.tabledata}" key="key" as="tabledata">
+                                                                                        <tr>
+
+                                                                                            <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td class="team-iconi-td">
+
+                                                                                                <div class="tabelle-team-info">
+                                                                                                <i>
+                                                                                                <img src="{tabledata.logo}">
+
+                                                                                                </i>
+                                                                                                <span>{tabledata.competitorsname}
+                                                                                                
+                                                                                                </span>
+                                                                                                </div>
+                                                                                                </td>
+                                                                                            <td>
+                                                                                            <f:if condition="{tabledata.statistic.saves}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.saves}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.shots_against}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.shots_against}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.goals_conceded}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.goals_conceded}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                             <td>
+                                                                                                 <f:if condition="{tabledata.statistic.save_accuracy}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.save_accuracy}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.goalkeeper_minutes_played}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.goalkeeper_minutes_played}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+                                                                                          
+                                                                                            
+                                                                                           
+
+                                                                                        </tr>
+                                                                                    </f:for>
+                                                                                </tbody>
+                                                                                     
+
+                                                                                </table>
+                                                                                </div>
+                                                                                        
+                                                                            </div>
+                                                                            </div>
+                                                                            <!-- the-tabelle -->
+                                                                      </div>
+                                                                    </div>
+                                                                </f:if>
+                                                                  <!-- Tab 1, active by default -->
+
+                                                                  <!-- Tab 1, active by default -->
+                                                                    <div id="kader{kaderdatas.uid}tab-icon-3" class="tab">
+                                                                      <div class="content-block">
+                                                                          <div class="tabelle-content-module clearfix">                                            
+                                                                            <div class="the-tabelle content clearfix">
+                                                                                <div class="clearfix table-responsive">
+                                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                                    
+                                                                                    <!-- thead -->
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Datum</th>
+                                                                                            <th>zeit</th>
+                                                                                            <th>VS.</th>
+                                                                                            <th>AS</th>
+                                                                                            <th>TF</th>
+                                                                                            <th>ST</th>
+                                                
+                                                                                        
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <!-- thead -->
+
+                                                                                    <!-- tbody -->
+                                                                                    <tbody>
+                                                                                       
+                                                                                        <f:for each="{kaderdatas.tabledata}" key="key" as="tabledata">
+                                                                                        <tr>
+
+                                                                                            <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td class="team-iconi-td">
+
+                                                                                                <div class="tabelle-team-info">
+                                                                                                <i>
+                                                                                                <img src="{tabledata.logo}">
+
+                                                                                                </i>
+                                                                                                <span>{tabledata.competitorsname}
+                                                                                                
+                                                                                                </span>
+                                                                                                </div>
+                                                                                                </td>
+                                                                                            <td>
+                                                                                            <f:if condition="{tabledata.statistic.assists}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.assists}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.technical_fouls}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.technical_fouls}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.steals}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.steals}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                          
+                                                                                            
+                                                                                           
+
+                                                                                        </tr>
+                                                                                    </f:for>
+                                                                                </tbody>
+                                                                                     
+
+                                                                                </table>
+                                                                                </div>
+                                                                                        
+                                                                            </div>
+                                                                            </div>
+                                                                            <!-- the-tabelle -->
+                                                                      </div>
+                                                                    </div>
+                                                                  <!-- Tab 1, active by default -->
+
+                                                                  <!-- Tab 1, active by default -->
+                                                                    <div id="kader{kaderdatas.uid}tab-icon-4" class="tab">
+                                                                      <div class="content-block">
+                                                                         <div class="tabelle-content-module clearfix">                                            
+                                                                            <div class="the-tabelle content clearfix">
+                                                                                <div class="clearfix table-responsive">
+                                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                                    
+                                                                                    <!-- thead -->
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Datum</th>
+                                                                                            <th>zeit</th>
+                                                                                            <th>VS.</th>
+                                                                                            <th>GK</th>
+                                                                                            <th>RK</th>
+                                                                                            <th>2M</th>
+                                                
+                                                                                        
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <!-- thead -->
+
+                                                                                    <!-- tbody -->
+                                                                                    <tbody>
+                                                                                       
+                                                                                        <f:for each="{kaderdatas.tabledata}" key="key" as="tabledata">
+                                                                                        <tr>
+
+                                                                                            <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td class="team-iconi-td">
+
+                                                                                                <div class="tabelle-team-info">
+                                                                                                <i>
+                                                                                                <img src="{tabledata.logo}">
+
+                                                                                                </i>
+                                                                                                <span>{tabledata.competitorsname}
+                                                                                                
+                                                                                                </span>
+                                                                                                </div>
+                                                                                                </td>
+                                                                                            <td>
+                                                                                            <f:if condition="{tabledata.statistic.yellow_cards}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.yellow_cards}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.red_cards}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.red_cards}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.suspensions}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.suspensions}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                          
+                                                                                            
+                                                                                           
+
+                                                                                        </tr>
+                                                                                    </f:for>
+                                                                                </tbody>
+                                                                                     
+
+                                                                                </table>
+                                                                                </div>
+                                                                                        
+                                                                            </div>
+                                                                            </div>
+                                                                            <!-- the-tabelle -->
+                                                                      </div>
+                                                                    </div>
+                                                                  <!-- Tab 1, active by default -->
+
+                                                                  <!-- Tab 1, active by default -->
+                                                                    <div id="kader{kaderdatas.uid}tab-icon-5" class="tab">
+                                                                      <div class="content-block">
+                                                                            <div class="tabelle-content-module clearfix">                   
+                                                                            <div class="the-tabelle content clearfix">
+                                                                                <div class="clearfix table-responsive">
+                                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                                    
+                                                                                    <!-- thead -->
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Datum</th>
+                                                                                            <th>zeit</th>
+                                                                                            <th>VS.</th>
+                                                                                           <th>W</th>
+                                                                                            <th>FW</th>
+                                                                                            <th>WaT</th>
+                                                                                            <th>WG</th>
+                                                
+                                                                                        
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <!-- thead -->
+
+                                                                                    <!-- tbody -->
+                                                                                    <tbody>
+                                                                                       
+                                                                                        <f:for each="{kaderdatas.tabledata}" key="key" as="tabledata">
+                                                                                        <tr>
+
+                                                                                            <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                                                            <td class="team-iconi-td">
+
+                                                                                                <div class="tabelle-team-info">
+                                                                                                <i>
+                                                                                                <img src="{tabledata.logo}">
+
+                                                                                                </i>
+                                                                                                <span>{tabledata.competitorsname}
+                                                                                                
+                                                                                                </span>
+                                                                                                </div>
+                                                                                                </td>
+                                                                                            <td>
+                                                                                            <f:if condition="{tabledata.statistic.shots}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.shots}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.shots_off_goal}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.shots_off_goal}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.shots_on_goal}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.shots_on_goal}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                 <f:if condition="{tabledata.statistic.shot_accuracy}">
+                                                                                            <f:then>
+                                                                                                {tabledata.statistic.shot_accuracy}
+                                                                                            </f:then>
+                                                                                            <f:else>
+                                                                                             0
+                                                                                           </f:else>
+                                                                                            </f:if>
+                                                                                                
+                                                                                            </td>
+
+                                                                                          
+                                                                                            
+                                                                                           
+
+                                                                                        </tr>
+                                                                                    </f:for>
+                                                                                </tbody>
+                                                                                     
+
+                                                                                </table>
+                                                                                </div>
+                                                                                        
+                                                                            </div>
+                                                                            </div>
+                                                                            <!-- the-tabelle -->
+                                                                      </div>
+                                                                    </div>
+                                                                  <!-- Tab 1, active by default -->
+
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- info-tab-body -->
+
+
+                                                        </div>
+                                                        <!-- detail player secondary info -->
+                                                        
+                                                </div>
+                                            </div>
+                                            <!-- detail view --> 
+
+                                        </f:for>
+
+
+                                            
+
+                                           
+
+                                    </div>
+                               </div>
+                               <!-- col detail -->
+
+                            </div>
+                            <!-- repeat -->
+                        </f:for>
+
+                          
+
+                           
+
+                    </div>
+                    <!-- kader main module -->
+                          
+
+                    </div>
+                    <!-- module -->
+
+              </div>
+               
+            </div>
+
+            <!-- kader module -->
+</f:section>
+</html>

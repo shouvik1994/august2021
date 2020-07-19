@@ -1,0 +1,99 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+	  <!-- prouduct-listing-teaser -->
+            <div class="element element-gap-Exlarge-max block-section centered-container clearfix">
+                <div class="container-fluid clearfix">
+
+
+                    <!-- module header -->
+                      <div class="element element-gap-normal block-section clearfix">
+                             <div class="module-header pull-text-center light clearfix">
+                                   <h2><span>Fankleidung</span></h2>
+                             </div>
+                       </div>                      
+                    <!-- module header -->
+
+                    
+                    <div class="prouduct-listing-teaser clearfix">
+                        
+                        <div class="row clearfix equal-row">
+                    <f:for each="{Productlist}" key="key" as="product">
+
+                            <!-- col -->
+                            <div class="col-xs-12 my-col three-col equal-block">
+                                <div class="main-wrap full-height clearfix">
+                                   
+
+                                   <div class="pruduct-featured-img pull-text-center">
+                                       <div class="table-wrap"><div class="table-cell middle-line">
+                                       
+                                            <img src="{product.image}" height="770" width="836">
+                                      
+                                       </div></div>
+
+                                         <f:if condition="{product.newproduct}==1">
+                                              <div class="product-status-tag new"><span>NEU</span></div>
+                                          </f:if>
+                                          <f:if condition="{product.popularproduct}==1">
+                                              <div class="product-status-tag beliebt"><span>BELIEBT</span></div>
+                                         </f:if>
+                                   </div>
+
+                                   <div class="title pull-text-center">{product.title}</div>
+
+                                   <div class="price pull-text-center">
+                                        <f:if condition="{product.discountcheckbox}">
+                                        <f:then>
+                                                  
+                                        <f:if condition="{product.price}">
+
+                                        <div class="the-price old"><f:format.number decimals="2" decimalSeparator=",">{product.price}</f:format.number>€</div>
+                                    </f:if>                 
+                                        <div class="clear"></div>
+                                      <f:if condition="{product.dprice}">
+                                        <div class="the-price new"><f:format.number decimals="2" decimalSeparator=",">{product.dprice}</f:format.number>€</div>
+                                      </f:if>
+
+                                          </f:then>
+                                          <f:else>
+                                            <div class="the-price new"><f:format.number decimals="2" decimalSeparator=",">{product.price}</f:format.number>€</div>
+                                          </f:else>
+                                    </f:if>
+                                   </div>
+
+                                   <div class="activity pull-text-center">
+                                     <a class="site-button has-min-width type-two" href="/productdetails/{product.uid}"><span>ANSEHEN</span></a>
+                                   </div>     
+                                    
+
+                                </div>
+                            </div>
+                            <!-- col -->
+                     </f:for>
+
+                  
+                            
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- prouduct-listing-teaser -->
+</f:section>
+</html>

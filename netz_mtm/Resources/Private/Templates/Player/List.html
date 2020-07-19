@@ -1,0 +1,897 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+
+	 <!-- kader module -->
+            <div class="element element-gap-Exlarger block-section centered-container clearfix">
+                <div class="container container-width-default clearfix">
+
+
+                   <!-- module -->
+                    <div class="kader-module max-lg-grid-varient clearfix">
+
+                        <f:for each="{playerArray}" as="players">
+
+                            <!-- repeat -->
+                            <div class="row repeat-row element element-gap-Lgnormal clearfix">
+
+                               
+                            <f:for each="{players}" key="key" as="player">
+
+                                <!-- col -->
+                                <div class="col-md-4 my-col kader-thumb three-col">
+                                    <div class="main-wrap">
+
+                                        <div class="dp">
+                                            <f:if condition="{player.data.listimages }">
+                                                <f:then>
+                                                <f:image src="{player.data.listimages.uid}" alt="" treatIdAsReference="1" />
+                                                </f:then>
+                                                <f:else>
+                                                <img src="fileadmin/templates/Website/Images/noimage.png"  width="808" height="672">
+                                               </f:else>
+                                               </f:if>
+                                          
+                                        </div>
+
+                                        <div class="info">
+                                        <div class="table-wrap"><div class="table-cell bottom-line">
+                                            <div class="excerpt">
+                                                
+                                                <div class="number">{player.data.playernumber}</div>
+
+                                                <div class="name">
+                                                    <div class="primary">
+                                                    {player.data.firstname}<br>
+                                                    {player.data.lastname}
+                                                    </div>
+                                                    <div class="secondary">
+                                                    <f:translate key="position.{player.data.position}" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div></div>    
+                                        </div>           
+
+                                    </div>
+                                    <!-- detail view -->
+                                            <div class="hidden-detail-view hidden">
+                                                <div class="kader-detail-view clearfix">
+
+                                                        
+
+                                                        <!-- detail player primary info -->
+                                                        <div class="detail-player-primary-info element element-gap-Exlarge-max clearfix">
+
+
+                                                            <!-- primary-info-body -->
+                                                            <div class="row primary-info-body element element-gap-normal clearfix">
+
+                                                                <!-- col -->
+                                                                <div class="col-md-4 my-col two-col">
+                                                                    <div class="main-wrap clearfix">
+                                                                        <!-- img -->
+                                                                        <div class="player-img">
+                                                                            <f:if condition="{player.data.pimage}">
+                                                                            <f:then>
+                                                                        <f:image src="{player.data.pimage.uid}" alt="" treatIdAsReference="1" />
+                                                                            </f:then>
+                                                                            <f:else>
+                                                                            <img src="fileadmin/templates/Website/Images/noimage.png"  width="808" height="672">
+                                                                           </f:else>
+                                                                           </f:if>
+
+                                                                            </div>
+                                                                        <!-- img -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- col -->
+
+                                                                <!-- col -->
+                                                                <div class="col-md-8 my-col two-col">
+                                                                    <div class="main-wrap clearfix">
+
+                                                                        <!-- name and number -->
+                                                                           <div class="name-number element element-gap-Lgnormal">
+
+                                                                               <div class="name">
+                                                                                <div class="primary"> {player.data.firstname}
+                                                                                {player.data.lastname}
+                                                                                </div>
+                                                                                <div class="secondary">
+                                                                                    <f:translate key="position.{player.data .position}" />                      </div>
+                                                                               </div>
+                                                                                
+
+                                                                                <div class="number pull-text-right">
+                                                                                {player.data.playernumber}
+                                                                                </div>
+
+                                                                           </div>
+
+                                                                        <!-- name and number -->
+
+                                                                        <!-- carrier board -->
+                                                                        <div class="carrier-board table-responsive">
+
+                                                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                                                <f:if condition="{player.data.dob}">
+
+                                                                                <tr>
+                                                                                    <td>Geboren</td>
+                                                                                    <td>
+                                                                <f:format.date format="d.m.y">{player.data.dob}</f:format.date>
+
+                                                                                    </td>
+                                                                                </tr>
+                                                                               </f:if>
+                                                                                <f:if condition="{player.data.size}">
+                                                                                 <tr>
+                                                                                    <td>Grösse</td>
+                                                                                    <td>{player.data.size} cm</td>
+                                                                                </tr>
+                                                                               </f:if>
+                                                                               <f:if condition="{player.data.weight}">
+
+                                                                                 <tr>
+                                                                                    <td>Gewicht</td>
+                                                                                    <td>{player.data.weight} kg</td>
+                                                                                </tr>
+                                                                            </f:if>
+                                                                             <f:if condition="{player.data.nationlity}">
+
+                                                                                <tr>
+                                                                                    <td>NATIONALITÄT</td>
+                                                                                    <td> 
+                                                            <f:if condition="{player.data.nationlity}==Germany">
+                                                                                    <f:then>
+                                                                                    Deutsch
+                                                                                    </f:then>
+                                                                                    <f:else>
+                                                                                    {player.data.nationlity}
+                                                                                </f:else>
+                                                                                    </f:if></td>
+                                                                                </tr>
+
+                                                                            </f:if>
+                                                                            <f:if condition="{player.data.joiningdate}">
+
+                                                                                <tr>
+                                                                                    <td>BEI DER MT SEIT</td>
+                                                                                    <td><f:format.date format="Y">{player.data.joiningdate}</f:format.date></td>
+                                                                                </tr>
+                                                                            </f:if>
+                                                                                <f:if condition="{player.data.previousclub}">
+                                                                                 <tr>
+                                                                                    <td>Vorheriger Verein</td>
+                                                                                    <td>{player.data.previousclub}</td>
+                                                                                </tr>
+                                                                            </f:if>
+
+                                                                                
+                                                                            </table>      
+
+                                                                        </div>
+                                                                        <!-- carrier board -->
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <!-- col -->
+
+
+                                                            </div>
+                                                            <!-- primary-info-body -->
+
+                                                            <!-- primary-info-footer -->
+                                                            <div class="row primary-info-footer element element-gap-normal clearfix">
+
+                                                                   
+                                                                <!-- col -->
+                                                                <div class="col-md-4 my-col two-col">
+                                                                    <div class="main-wrap">
+                                                                        <div class="kader-brand">
+                                                                            <f:if condition="{player.data.sponsor}">
+                                                                        <f:image src="{player.data.sponsor.uid}" alt="" treatIdAsReference="1" height="48" width="268" />
+                                                                            </f:if>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- col -->
+
+                                                                <!-- col -->
+                                                                <div class="col-md-8 my-col two-col pull-text-right">
+                                                                    <div class="main-wrap">
+                                                                       
+                                                                            
+                                                                            <div class="kader-social">
+                                                                    <f:if condition="{player.data.fblink}">
+                                                                                <a href="{player.data.fblink}" target="_blank"><img src="fileadmin/templates/Website/Images/facebook.svg" width="50"></a>
+                                                                            </f:if>
+                                                                    <f:if condition="{player.data.inslink}">
+                                                                                <a href="{player.data.inslink}" target="_blank"><img src="fileadmin/templates/Website/Images/insta.svg" width="50"></a>
+                                                                    </f:if>
+                                                                            </div>
+                                                                            <f:if condition="{player.data.signimage}">
+                                                                            
+
+
+                                                                        <div class="kader-activity-link">
+                                                                    <a href="fileadmin{player.data.signimage.originalResource.originalFile.identifier}" class="site-button" target="_blank">AUTOGRAMMKARTE</a>
+                                                                            </div>
+                                                                        </f:if>
+
+                                                                    </div>
+                                                                </div>
+                                                                <!-- col -->
+
+
+
+                                                            </div>
+                                                            <!-- primary-info-footer -->
+
+
+
+                                                        </div>
+                                                        <!-- detail player primary info -->
+
+
+                                                        <!-- detail player secondary info -->
+                                                        <div class="detail-player-secondary-info clearfix">
+
+                                                            <!-- tab link -->
+                                                            <div class="info-tab-link-carousel generic-varient general-carousel element element-gap-Lessnormal">
+                                                                <div class="owl-carousel clearfix">
+                                                                      
+                                                                      <div class="item">
+                                                                          <div>
+                                                                            <i>
+                                                                                <img src="fileadmin/templates/Website/Images/goal-light.svg" class="normal-img">
+                                                                                <img src="fileadmin/templates/Website/Images/goal-danger.svg" class="active-img">
+                                                                            </i>
+                                                                            <span>TORE</span>
+                                                                          </div>
+                                                                          <div class="carousel-context hidden">
+                                                                            <div class="the-content clearfix">
+                                                                               
+
+                                                                                <div class="tabelle-content-module clearfix">                                            
+                                    <div class="the-tabelle content clearfix">
+                                    <div class="table-responsive clearfix">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            
+                                            <!-- thead -->
+                                            <thead>
+                                                <tr>
+                                                    <th>Datum</th>
+                                                    <th>zeit</th>
+                                                    <th class="pull-text-center">VS.</th>
+                                                    <th class="pull-text-right">7M</th>
+                                                    <th class="pull-text-right">T</th>
+                                                    <th class="pull-text-right">FT</th>
+                                                
+                                                </tr>
+                                            </thead>
+                                            <!-- thead -->
+
+                                            <!-- tbody -->
+                                            <tbody>
+                                               
+                                                <f:for each="{player.tabledata}" key="key" as="tabledata">
+                                                <tr>
+
+                                                    <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                    <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                    <td class="pull-text-center">
+                                                         <!-- schedule -->
+                                                         <div class="next-match-schedule type-two clearfix">
+                                                            <div class="next-match-schedule-board type-two">
+
+                                                                <div class="primary-part part">
+
+                                                                    <div class="type-one"><i>
+                                                                          <f:if condition="{tabledata.logo}">
+                                            <f:image src="{tabledata.logo.uid}" alt="" treatIdAsReference="1" width="35" />
+                                                                    </f:if>
+                                                                    </i><span>{tabledata.competitorsname}</span></div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>    
+                                                        <!-- schdule -->
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                    <f:if condition="{tabledata.statistic.seven_m_goals}">
+                                                    <f:then>
+                                                        {tabledata.statistic.seven_m_goals}
+                                                    </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                         <f:if condition="{tabledata.statistic.goals_scored}">
+                                                    <f:then>
+                                                        {tabledata.statistic.goals_scored}
+                                                    </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                        
+                                                    </td>
+
+                                                    <td class="pull-text-right">
+                                                         <f:if condition="{tabledata.statistic.field_goals}">
+                                                    <f:then>
+                                                        {tabledata.statistic.field_goals}
+                                                    </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                        
+                                                    </td>
+                                                  
+                                                    
+                                                   
+
+                                                </tr>
+                                            </f:for>
+                                        </tbody>
+                                             
+
+                                        </table>
+                                        </div>
+                                                
+                                    </div>
+                                    </div>
+                                    <!-- the-tabelle -->
+
+
+
+                                                                            </div>
+                                                                          </div>
+                                                                      </div>
+
+                                                                      <f:if condition="{player.data.position}==G">
+                                                                       <div class="item">
+                                                                          <div>
+                                                                            <i>
+                                                                                <img src="fileadmin/templates/Website/Images/football-light.svg" class="normal-img">
+                                                                                <img src="fileadmin/templates/Website/Images/football-danger.svg" class="active-img">
+                                                                            </i>
+                                                                            <span>WÜRFE</span>
+                                                                          </div>
+                                                                          <div class="carousel-context hidden">
+                                                                            <div class="the-content clearfix">
+                                                                                <div class="tabelle-content-module clearfix">                                            
+                                    <div class="the-tabelle content clearfix">
+                                    <div class="table-responsive clearfix">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            
+                                            <!-- thead -->
+                                            <thead>
+                                                <tr>
+                                                    <th>Datum</th>
+                                                    <th>zeit</th>
+                                                    <th class="pull-text-center">VS.</th>
+                                                    <th class="pull-text-right">P</th>
+                                                    <th class="pull-text-right">GW</th>
+                                                    <th class="pull-text-right">GT</th>
+                                                    <th class="pull-text-right">SA</th>
+                                                    <th class="pull-text-right">GMP</th>
+                                                
+                                                </tr>
+                                            </thead>
+                                            <!-- thead -->
+
+                                            <!-- tbody -->
+                                            <tbody>
+                                               
+                                                <f:for each="{player.tabledata}" key="key" as="tabledata">
+                                                <tr>
+
+                                                    <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                    <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                    <td class="pull-text-center">
+                                                         <!-- schedule -->
+                                                         <div class="next-match-schedule type-two clearfix">
+                                                            <div class="next-match-schedule-board type-two">
+
+                                                                <div class="primary-part part">
+
+                                                                    <div class="type-one"><i>
+                                                                          <f:if condition="{tabledata.logo}">
+                                            <f:image src="{tabledata.logo.uid}" alt="" treatIdAsReference="1" width="35" />
+                                                                    </f:if>
+                                                                    </i><span>{tabledata.competitorsname}</span></div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>    
+                                                        <!-- schdule -->
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                         <f:if condition="{tabledata.statistic.saves}">
+                                                    <f:then>
+                                                        {tabledata.statistic.saves}
+                                                    </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                        
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                          <f:if condition="{tabledata.statistic.shots_against}">
+                                                    <f:then>
+                                                         {tabledata.statistic.shots_against}
+                                                    </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                       
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                         <f:if condition="{tabledata.statistic.goals_conceded}">
+                                                    <f:then>
+                                                         {tabledata.statistic.goals_conceded}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                       
+                                                    </td>
+                                                     <td class="pull-text-right">
+                                                       <f:if condition="{tabledata.statistic.save_accuracy}">
+                                                    <f:then>
+                                                           {tabledata.statistic.save_accuracy}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                      
+                                                    </td>
+                                                     <td class="pull-text-right">
+                                              <f:if condition="{tabledata.statistic.goalkeeper_minutes_played}">
+                                                    <f:then>
+                                                            {tabledata.statistic.goalkeeper_minutes_played}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                       
+                                                    </td>
+
+                                                    
+                                                   
+
+                                                </tr>
+                                            </f:for>
+                                        </tbody>
+
+                                        </table>
+                                        </div>
+                                                
+                                    </div>
+                                    </div>
+                                    <!-- the-tabelle -->
+
+
+
+                                                                            </div>
+                                                                          </div>
+                                                                      </div>
+                                                                  </f:if>
+
+                                                                      <div class="item">
+                                                                          <div>
+                                                                            <i>
+                                                                                <img src="fileadmin/templates/Website/Images/handball-court-light.svg" class="normal-img">
+                                                                                <img src="fileadmin/templates/Website/Images/handball-court-danger.svg" class="active-img">
+                                                                            </i>
+                                                                            <span>TECHNIK</span>
+                                                                          </div>
+                                                                          <div class="carousel-context hidden">
+                                                                            <div class="the-content clearfix">
+                                                                                <div class="tabelle-content-module clearfix">                                            
+                                    <div class="the-tabelle content clearfix">
+                                    <div class="table-responsive clearfix">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            
+                                            <!-- thead -->
+                                            <thead>
+                                                <tr>
+                                                    <th>Datum</th>
+                                                    <th>zeit</th>
+                                                    <th class="pull-text-center">VS.</th>
+                                                    <th class="pull-text-right">AS</th>
+                                                    <th class="pull-text-right">TF</th>
+                                                    <th class="pull-text-right">ST</th>
+                                                
+                                                </tr>
+                                            </thead>
+                                            <!-- thead -->
+
+                                            <!-- tbody -->
+                                            <tbody>
+                                               
+                                                <f:for each="{player.tabledata}" key="key" as="tabledata">
+                                                <tr>
+
+                                                    <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                    <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                    <td class="pull-text-center">
+                                                         <!-- schedule -->
+                                                         <div class="next-match-schedule type-two clearfix">
+                                                            <div class="next-match-schedule-board type-two">
+
+                                                                <div class="primary-part part">
+
+                                                                    <div class="type-one"><i>
+                                                                          <f:if condition="{tabledata.logo}">
+                                            <f:image src="{tabledata.logo.uid}" alt="" treatIdAsReference="1" width="35" />
+                                                                    </f:if>
+                                                                    </i><span>{tabledata.competitorsname}</span></div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>    
+                                                        <!-- schdule -->
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                <f:if condition="{tabledata.statistic.assists}">
+                                                    <f:then>
+                                                         {tabledata.statistic.assists}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                       
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                        <f:if condition="{tabledata.statistic.technical_fouls}">
+                                                    <f:then>
+                                                         {tabledata.statistic.technical_fouls}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                        
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                <f:if condition="{tabledata.statistic.steals}">
+                                                    <f:then>
+                                                           {tabledata.statistic.steals}
+
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                  
+                                                    
+                                                   
+
+                                                </tr>
+                                            </f:for>
+                                        </tbody>
+
+                                        </table>
+                                        </div>
+                                                
+                                    </div>
+                                    </div>
+                                    <!-- the-tabelle -->
+
+
+
+                                                                            </div>
+                                                                          </div>
+                                                                      </div>
+
+                                                                      <div class="item">
+                                                                          <div>
+                                                                            <i>
+                                                                                <img src="fileadmin/templates/Website/Images/red-card-light.svg" class="normal-img">
+                                                                                <img src="fileadmin/templates/Website/Images/red-card-danger.svg" class="active-img">
+                                                                            </i>
+                                                                            <span>STRAFEN</span>
+                                                                          </div>
+                                                                           <div class="carousel-context hidden">
+                                                                            <div class="the-content clearfix">
+                                                                                <div class="tabelle-content-module clearfix">                                            
+                                    <div class="the-tabelle content clearfix">
+                                    <div class="table-responsive clearfix">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            
+                                            <!-- thead -->
+                                             <!-- thead -->
+                                            <thead>
+                                                <tr>
+                                                    <th>Datum</th>
+                                                    <th>zeit</th>
+                                                    <th class="pull-text-center">VS.</th>
+                                                    <th class="pull-text-right">GK</th>
+                                                    <th class="pull-text-right">RK</th>
+                                                    <th class="pull-text-right">2M</th>
+                                                
+                                                </tr>
+                                            </thead>
+                                            <!-- thead -->
+
+                                            <!-- tbody -->
+                                            <tbody>
+                                               
+                                                <f:for each="{player.tabledata}" key="key" as="tabledata">
+                                                <tr>
+
+                                                    <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                    <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                    <td class="pull-text-center">
+                                                         <!-- schedule -->
+                                                         <div class="next-match-schedule type-two clearfix">
+                                                            <div class="next-match-schedule-board type-two">
+
+                                                                <div class="primary-part part">
+
+                                                                    <div class="type-one"><i>
+                                                                          <f:if condition="{tabledata.logo}">
+                                            <f:image src="{tabledata.logo.uid}" alt="" treatIdAsReference="1" width="35" />
+                                                                    </f:if>
+                                                                    </i><span>{tabledata.competitorsname}</span></div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>    
+                                                        <!-- schdule -->
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                <f:if condition="{tabledata.statistic.yellow_cards}">
+                                                    <f:then>
+                                                            {tabledata.statistic.yellow_cards}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                    <f:if condition="{tabledata.statistic.red_cards}">
+                                                    <f:then>
+                                                            {tabledata.statistic.red_cards}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                    <f:if condition="{tabledata.statistic.suspensions}">
+                                                    <f:then>
+                                                            {tabledata.statistic.suspensions}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                  
+                                                    
+                                                   
+
+                                                </tr>
+                                            </f:for>
+                                        </tbody>
+                                        </table>
+                                        </div>
+                                                
+                                    </div>
+                                    </div>
+                                    <!-- the-tabelle -->
+
+
+
+                                                                            </div>
+                                                                          </div>
+                                                                      </div>
+
+                                                                      <div class="item">
+                                                                          <div>
+                                                                            <i>
+                                                                                <img src="fileadmin/templates/Website/Images/running-light.svg" class="normal-img">
+                                                                                <img src="fileadmin/templates/Website/Images/running-danger.svg" class="active-img">
+                                                                            </i>
+                                                                            <span>LEISTUNG</span>
+                                                                          </div>
+                                                                           <div class="carousel-context hidden">
+                                                                            <div class="the-content clearfix">
+                                                                                <div class="tabelle-content-module clearfix">                                            
+                                    <div class="the-tabelle content clearfix">
+                                    <div class="table-responsive clearfix">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            
+                                           <!-- thead -->
+                                            <thead>
+                                                <tr>
+                                                    <th>Datum</th>
+                                                    <th>zeit</th>
+                                                    <th class="pull-text-center">VS.</th>
+                                                    <th class="pull-text-right">W</th>
+                                                    <th class="pull-text-right">FW</th>
+                                                    <th class="pull-text-right">WaT</th>
+                                                    <th class="pull-text-right">WG</th>
+                                                
+                                                </tr>
+                                            </thead>
+                                            <!-- thead -->
+
+                                            <!-- tbody -->
+                                            <tbody>
+                                               
+                                                <f:for each="{player.tabledata}" key="key" as="tabledata">
+                                                <tr>
+
+                                                    <td><f:format.date format="d.m.Y">{tabledata.start_time}</f:format.date></td>
+                                                    <td><f:format.date format="H:i">{tabledata.start_time}</f:format.date></td>
+                                                    <td class="pull-text-center">
+                                                         <!-- schedule -->
+                                                         <div class="next-match-schedule type-two clearfix">
+                                                            <div class="next-match-schedule-board type-two">
+
+                                                                <div class="primary-part part">
+
+                                                                    <div class="type-one"><i>
+                                                                          <f:if condition="{tabledata.logo}">
+                                            <f:image src="{tabledata.logo.uid}" alt="" treatIdAsReference="1" width="35" />
+                                                                    </f:if>
+                                                                    </i><span>{tabledata.competitorsname}</span></div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>    
+                                                        <!-- schdule -->
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                    <f:if condition="{tabledata.statistic.shots}">
+                                                    <f:then>
+                                                            {tabledata.statistic.shots}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                     <f:if condition="{tabledata.statistic.shots_off_goal}">
+                                                    <f:then>
+                                                            {tabledata.statistic.shots_off_goal}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                      <f:if condition="{tabledata.statistic.shots_on_goal}">
+                                                    <f:then>
+                                                            {tabledata.statistic.shots_on_goal}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                        <f:if condition="{tabledata.statistic.shot_accuracy}">
+                                                    <f:then>
+                                                            {tabledata.statistic.shot_accuracy}
+                                                     </f:then>
+                                                    <f:else>
+                                                     0
+                                                   </f:else>
+                                                    </f:if>
+                                                    </td>
+                                                  
+                                                    
+                                                   
+
+                                                </tr>
+                                            </f:for>
+                                        </tbody>
+
+                                        </table>
+                                        </div>
+                                                
+                                    </div>
+                                    </div>
+                                    <!-- the-tabelle -->
+
+
+
+                                                                            </div>
+                                                                          </div>
+                                                                      </div>  
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab link -->
+
+
+                                                        <!-- info-tab-body -->
+                                                        <div class="info-tab-body-wrap clearfix">
+
+                                                            <div class="info-tab-body clearfix">
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- info-tab-body -->
+
+
+                                                        </div>
+                                                        <!-- detail player secondary info -->
+
+                                                        
+
+                                                   <div class="pull-text-center close-detail-view">
+                                                        <a class="site-button danger with-cross">close</a>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                            <!-- detail view -->
+                                </div>
+                                <!-- col -->
+                            </f:for>
+
+
+                               <!-- col detail -->
+                               <div  class="col-md-12 my-col kader-detail-wrap no-top-margin">
+                                    <div class="main-wrap clearfix">
+
+                                           
+
+                                    </div>
+                               </div>
+                               <!-- col detail -->
+
+                            </div>
+                            <!-- repeat -->
+                        </f:for>
+                    </div>
+                    <!-- module -->
+
+
+                </div>
+            </div>
+            <!-- kader module -->
+    
+</f:section>
+</html>

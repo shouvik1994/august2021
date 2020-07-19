@@ -1,0 +1,121 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+            <!-- prouduct-listing-teaser -->
+            <div class="element element-gap-Exlarge-max block-section centered-container clearfix">
+                <div class="container container-width-default clearfix">
+
+
+                    <!-- module header -->
+                      <div class="element element-gap-large block-section clearfix">
+                             <div class="module-header pull-text-left light clearfix">
+                                   <h3><span>Fankleidung</span></h3>
+                             </div>
+                       </div>                      
+                    <!-- module header -->
+
+                    
+                    <div class="prouduct-listing-teaser clearfix">
+                        
+                        <div class="row clearfix equal-row">
+                        <f:for each="{product}" key="key" as="products">
+                            <!-- col -->
+                            <div class="col-md-4 my-col three-col equal-block">
+                                <div class="main-wrap full-height clearfix">
+                                   
+
+                                   <div class="pruduct-featured-img pull-text-center">
+                                       <div class="table-wrap"><div class="table-cell middle-line">
+                                        <f:if condition="{products.image}">
+                                         <f:then>
+                                        <f:for each="{products.image}" key="key" as="image"  iteration="fooIterator">
+                                        <f:if condition="{fooIterator.index}==0">
+                                         
+                                                <f:image src="{image.uid}" alt=""  height="770" width="836" treatIdAsReference="1" />
+                                          
+                                        </f:if>
+
+                                         </f:for>
+                                         </f:then>
+                                          <f:else>
+                                           <img src="/fileadmin/templates/Website/Images/noimage.png" alt=""  height="770" width="836"/>
+                                        </f:else>
+                                      </f:if>
+                                          
+                                       
+                                       </div></div>
+                                    <f:if condition="{products.newproduct}==1">
+                                     <div class="product-status-tag new"><span>NEU</span></div>
+                                   </f:if>
+                                    <f:if condition="{products.popularproduct}==1">
+                                    <div class="product-status-tag beliebt"><span>BELIEBT</span></div>
+
+                                   </f:if>
+
+                                   </div>
+
+                                   <div class="title pull-text-center">{products.title}</div>
+
+
+                                    <div class="price pull-text-center">
+                                      <f:if condition="{products.discountcheckbox}">
+                                        <f:then>
+                                                  
+                                        <f:if condition="{products.price}">
+
+                                        <div class="the-price old"><f:format.number decimals="2" decimalSeparator=",">{products.price}</f:format.number>€</div>
+                                    </f:if>                 
+                                        <div class="clear"></div>
+                                      <f:if condition="{products.dprice}">
+                                        <div class="the-price new"><f:format.number decimals="2" decimalSeparator=",">{products.dprice}</f:format.number>€</div>
+                                      </f:if>
+
+                                          </f:then>
+                                          <f:else>
+                                           <div class="clear"></div>
+                                            <div class="the-price new"><f:format.number decimals="2" decimalSeparator=",">{products.price}</f:format.number>€</div>
+                                          </f:else>
+                                    </f:if>
+
+                                    
+
+
+                                   </div>
+                               
+
+                                   <div class="activity pull-text-center">
+                                     <f:link.action action="detail" pageUid="{settings.productdetails_pid}"pluginName="Pdetails"class="site-button has-min-width type-two" arguments="{uid:products.uid}">
+                                  ANSEHEN
+                                  </f:link.action>
+                                   </div>     
+                                    
+
+                                </div>
+                            </div>
+                            <!-- col -->
+                          </f:for>
+
+                          
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- prouduct-listing-teaser -->
+</f:section>
+</html>

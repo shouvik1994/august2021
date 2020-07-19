@@ -1,0 +1,184 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+    
+
+<f:if condition="{settings.view}==Single">
+        <!-- module header -->
+            <div class="element element-gap-medium block-section centered-container clearfix">
+             <div class="container container-width-default clearfix">
+                <div class="module-header pull-text-center danger clearfix">
+                    <h2>VOR & HINTER DEN KULLISSEN<span>MT IN ACTION</span></h2>
+                </div>
+             </div>  
+            </div>
+            <!-- module header -->
+	  <!-- video content element -->
+            <div class="element element-gap-normal block-section centered-container clearfix">
+             <div class="container container-width-default clearfix">
+                <div class="video-content-element lg-grid-varient clearfix">
+                    
+                    <div class="row clearfix">
+
+                        <!-- col -->
+                        <div class="col-md-8 my-col">
+                            <div class="main-wrap clearfix">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{first_video.videoid}?rel=0" allowfullscreen></iframe>
+                                </div>
+                            </div>    
+                        </div>
+                        <!-- col -->
+
+                         <!-- col -->
+                        <div class="col-md-4 my-col">
+                            <div class="main-wrap clearfix">
+                                <div class="entry clearfix">
+                                    <h5>{first_video.title}</h5>
+                                    <p><f:format.crop maxCharacters="250">
+                            {first_video.description}</f:format.crop></p>
+                                </div>
+                            </div>    
+                        </div>
+                        <!-- col -->
+
+
+                    </div>
+
+                </div>
+             </div>  
+            </div>
+    </f:if>
+
+    <f:if condition="{settings.view}==Double">
+          <!-- module header -->
+            <div class="element element-gap-medium block-section centered-container clearfix">
+             <div class="container container-width-default clearfix">
+                <div class="module-header pull-text-center light clearfix">
+                    <h3><span>Video Highlights</span></h3>
+                </div>
+             </div>  
+            </div>
+            <!-- module header -->
+     <!-- video content element -->
+            <div class="element element-gap-normal block-section centered-container clearfix">
+             <div class="container container-width-default clearfix">
+
+                <div class="element lg-grid-varient clearfix">
+                    <div class="row">
+
+                    <!-- col -->
+                <f:for each="{double_video}" key="key" as="doublevideo">
+                    <div class="col-md-6 my-col">
+                        <div class="video-content-element lg-grid-varient clearfix">
+                            
+                            <div class="row clearfix">
+                                <!-- col -->
+                                <div class="col-md-12 my-col">
+                                    <div class="main-wrap clearfix">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{doublevideo.videoid}?rel=0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <!-- col -->
+
+                                 <!-- col -->
+                                <div class="col-md-12 my-col">
+                                    <div class="main-wrap clearfix">
+                                        <div class="entry clearfix">
+                                            <h5>{doublevideo.title}</h5>
+                                            <p><f:format.crop maxCharacters="250">{doublevideo.description}</f:format.crop></p>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <!-- col -->
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- col -->
+                </f:for>
+
+                  
+
+                    </div>
+                </div>
+
+
+
+
+             </div>  
+            </div>
+            <!-- video content element -->
+    </f:if>
+            <!-- video content element -->
+            <!-- video slider -->
+            <div class="element element-gap-Exlarger block-section centered-container clearfix">
+             <div class="container container-width-default clearfix">
+
+
+                    <!-- video slider module -->
+                    <div class="video-slider-module clearfix">
+                         <!-- module header -->
+                            <div class="element element-gap-normal block-section clearfix">
+                            
+                                <div class="module-header pull-text-center light clearfix">
+                                    <h5><span>AKTUELLE VIDEOS</span></h5>
+                                </div>
+                           
+                            </div>
+                        <!-- module header -->
+
+                        <!-- items -->
+                        <div class="video-items-in-carousel general-carousel element element-gap-big clearfix">
+                            <div class="owl-carousel">
+                            	 <f:for each="{video}" key="key" as="videos">
+
+                                    <div class="item">
+
+                <f:link.action action="allvideo" pageUid="{settings.allvideo_page_id}"pluginName="Allvideo" arguments="{uid:videos.uid}"target="_blank">
+                                            <div class="item-img">
+                                                <f:image  src="uploads/netz_mtm/youtube/{videos.image}"  />
+                                            </div>
+                                            <div class="item-title">{videos.title}</div>
+                </f:link.action>
+                                    </div>
+                                  </f:for>
+
+                                  
+            
+                            </div>
+                        </div>
+                        <!-- items -->
+
+                        <!-- load-more -->
+                            <div class="load-more pull-text-center clearfix"><a href="<f:uri.page pageUid="{settings.allvideo_page_id}" absolute="1" noCacheHash="1"/>"  class="site-button with-arrow" >ALLE VIDEOS</a></div>
+                        <!-- load more -->
+
+                    </div>
+                    <!-- video slider module -->
+
+
+             </div>
+            </div>
+            <!-- video slider -->
+
+		
+	</f:section>
+</html>
+

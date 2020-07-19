@@ -1,0 +1,270 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+    <!-- Scrollable page content-->
+      <!-- kader module -->
+            <div class="element element-gap-Exlarger block-section centered-container clearfix">
+                  
+                  <div class="container-fluid">
+
+
+                    <!-- module -->
+                    <div class="kader-module clearfix">
+                        
+
+                        <!-- detail view -->
+                                            <div class="link-tab-varient var-1 clearfix">
+                                                <div class="kader-detail-view single-stand clearfix">
+
+
+
+                                                        <!-- detail player secondary info -->
+                                                        <div class="detail-player-secondary-info clearfix">
+
+
+
+                                                            <!-- tab-link-page -->
+                                                            <div class="tab-link-page-module element element-gap-Lessnormal clearfix">
+                                                                <div class="main-wrap">
+
+                                                                    <div class="pull-text-left prev">
+                                                                        <a href="/spielplaene/">
+                                                                            <i></i>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                    <div class="pull-text-center active">
+                                                                       
+                                                                            <span>TABELLEN</span>
+                                                                        
+                                                                    </div>
+
+
+                                                                     <div class="pull-text-right next">
+                                                                        <a href="/statistiken/">
+                                                                            <i></i>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab-link-page -->
+
+                                                            <!-- tab link -->
+                                                            <div class="info-tab-link-carousel general-carousel element element-gap-Lessnormal">
+                                                                <div class="owl-carousel clearfix">
+                                                            <f:for each="{tabllen_data}" iteration="tabilite" as="tabllendatac">
+                                                                      
+                                                                     
+                                                                      <div class="item">
+                                                                      <f:if condition="{tabilite.index}==0">
+                                                                      <f:then>
+                                                                      <a href="#tab{tabllendatac.uid}" class="tab-link tab-link-active">
+                                                                      </f:then>
+                                                                      <f:else>
+                                                                      <a href="#tab{tabllendatac.uid}" class="tab-link">
+                                                                    </f:else>
+
+                                                                      </f:if>
+                                                                          <div>
+                                                                            <span>{tabllendatac.title}</span>
+                                                                          </div>
+                                                                          </a>
+                                                                      </div>
+                                                              </f:for>
+                                                                     
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab link -->
+
+
+                                                        <!-- info-tab-body -->
+                                                        <div class="info-tab-body-wrap clearfix">
+
+                                                            <div class="info-tab-body tabs clearfix">
+
+                                                  <f:for each="{tabllen_data}"  iteration="taddetailite" as="tabllendatalist">
+
+                                                     <f:if condition="{taddetailite.index}==0">
+                                                                <f:then>
+                                                                    <div id="tab{tabllendatalist.uid}" class="tab tab-active">
+                                                               </f:then>
+                                                               <f:else>
+                                                                <div id="tab{tabllendatalist.uid}" class="tab">
+                                                             </f:else>
+                                                           </f:if>
+                                                            <f:if condition="{tabllendatalist.ranking_table}">
+
+                                                                   <!-- Tab 1, active by default -->
+                                                                      <div class="content-block">
+                                                                        <!-- the-tabelle -->
+
+                                    <div class="tabelle-content-module clearfix">                                            
+                                    <div class="the-tabelle content clearfix">
+                                    <div class="clearfix table-responsive">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            
+                                            <!-- thead -->
+                                            <thead>
+                                                <tr>
+                                                    <th class="lg-tag">#</th>
+                                                    <th>TEAM</th>
+                                                    <th>SP</th>
+                                                    
+                                                    <th>diff</th>
+                                                    <th>PKT</th>
+                                                </tr>
+                                            </thead>
+                                            <!-- thead -->
+
+                                            <!-- tbody -->
+                                             <tbody>
+                            <f:for each="{tabllendatalist.ranking_table}"  iteration="fooIterator" as="rankingtable" >
+                                 <f:if condition="{settings.sportradar_competitor_id}=={rankingtable.competitor.id}">
+                            <f:then>
+                                <tr class="active trigger-extended-info">
+                           </f:then>
+                           <f:else>
+                            <f:if condition="{fooIterator.index}==0">
+                            <f:then>
+                                <tr class="team-varient-one vs-varient-one trigger-extended-info">
+                           </f:then>
+                           <f:else>
+                            <f:if condition="{fooIterator.index}==1">
+                            <f:then>
+                                <tr class="team-varient-one vs-varient-two trigger-extended-info">
+                           </f:then>
+                           <f:else>
+                            
+                            <f:if condition="{fooIterator.index}==2">
+                            <f:then>
+                                    <tr class="team-varient-two vs-varient-one trigger-extended-info">
+                           </f:then>
+                           <f:else>
+                            
+                            <f:if condition="{fooIterator.index}==3">
+                            <f:then>
+                                    <tr class="team-varient-two vs-varient-two trigger-extended-info">
+                           </f:then>
+                           <f:else>
+                            <f:if condition="{rankingtable.lastwo}">
+                            <f:then>
+                            <tr class="team-varient-three vs-varient-one trigger-extended-info">
+
+                          </f:then>
+                          <f:else>
+                            <tr class="trigger-extended-info">
+
+                        </f:else>
+
+                          </f:if>
+
+                          </f:else>
+                          </f:if>
+                          </f:else>
+                          </f:if>
+                          </f:else>
+                          </f:if>
+                          </f:else>
+                          </f:if>
+                          </f:else>
+                          </f:if>
+                                                     <td>{rankingtable.rank}</td>
+                                                <td class="team-iconi-td">
+
+                                                        <div class="tabelle-team-info">
+                                                            <i>
+                                                             <img src="{rankingtable.logo}">
+                                                           
+                                                            </i>
+                                                            <span>{rankingtable.competitor.name}
+                                                               <div class="tebelle-app-extended-info">
+                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                  <thead>
+                                                                    <tr>
+                                                                      <th>S</th>
+                                                                      <th>U</th>
+                                                                      <th>N</th>
+                                                                      <th>TORE</th>
+                                                                    </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                                                                    <tr>
+                                                                     <td>{rankingtable.win}</td>
+                                                                      <td>{rankingtable.draw}</td>
+                                                                      <td>{rankingtable.loss}</td>
+                                                                      <td>{rankingtable.goals_for}:{rankingtable.goals_against}</td>
+                                                                    </tr>
+                                                                  </tbody>
+                                                                </table>
+                                                              </div>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td>{rankingtable.played}</td>
+                                                    
+                                                    <td>{rankingtable.goals_diff}</td>
+                                                    <td>{rankingtable.points}</td>
+                                                </tr>
+                                        </f:for>
+
+
+                                               
+
+                                            </tbody>
+                                            <!-- tbody -->
+
+                                        </table>
+                                    </div>
+                                                
+                                    </div>
+                                    </div>
+                                    <!-- the-tabelle -->
+                                                                      </div>
+                                                                    </div>
+                                                                  <!-- Tab 1, active by default -->  
+                                                                </f:if>
+                                                                </f:for>
+                                                            
+
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- info-tab-body -->
+
+
+                                                        </div>
+                                                        <!-- detail player secondary info -->
+
+                                                </div>
+                                            </div>
+                                            <!-- detail view -->
+                          
+
+                    </div>
+                    <!-- module -->
+
+              </div>
+               
+            </div>
+            <!-- kader module -->
+      
+
+
+	   </f:section>
+	   </html>

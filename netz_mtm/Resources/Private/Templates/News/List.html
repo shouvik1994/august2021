@@ -1,0 +1,168 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+	   
+
+	   <!-- news listing module -->
+             <div class="element element-gap-Exlarger block-section centered-container clearfix">
+                <div class="container container-width-default clearfix">
+
+                        
+
+
+                        <!-- news listing module -->
+                        <div class="news-listing-module clearfix">
+
+                            
+
+                            <!-- filter -->
+                            <div class="news-list-filter element element-gap-Lgmedium">
+
+                                
+                                <!-- row -->
+                                <div class="filter-button-row">
+                                    <div class="row">
+
+                                        <div class="col-md-6 my-col pull-text-left">
+                                            <div class="custom-inputText-block">
+                                                <input type="text" readonly="readonly" class="mtm-news-list-datepicker" value="{date}" id="mtm-default-date">
+                                                <a class="site-button with-calender" href="#">ZEITRAUM</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 my-col pull-text-right">
+                                            <div class="filter-search-filed">
+                                                <div class="dropdown">
+                                                    <div class="search-dropdown-trigger dropdown-toggle" id="filter-news-type-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                                                        <a class="site-button with-search" href="#">SUCHEN</a>
+                                                     </div>
+
+                                                     <div class="dropdown-menu" aria-labelledby="filter-news-type-search">
+                                                 <f:form action="list"  controller="News" enctype="multipart/form-data"  name="news" name="mtm-search-form" id="mtm-search-form">	
+                                                     <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Search" name="tx_netzmtm_news[title]" id="mtm-search-title">
+                                                        <input type="hidden" name="tx_netzmtm_news[date]" id="mtm-search-date">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    	<button type="submit" class="site-button danger" id="mtm-search-button">Submit</button>
+                                                     </div>
+                                                 </f:form>
+                                                    </div> 
+                                                 </div>   
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- row -->
+
+                                 <!-- row -->
+                                <div class="filter-button-row">
+                                    <div class="row">
+
+                                        <div class="col-md-12 my-col pull-text-center no-top-margin">
+                                           <div class="news-tags">
+                                           <f:for each="{categorys}"  as="category">
+                                              <f:link.action action="list" arguments="{category : category.uid}"><div class="{category.color}">{category.title}</div></f:link.action>
+                                         	 </f:for>
+
+                                           </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- row -->
+
+
+                            </div>
+                            <!-- filter -->
+                                
+
+                            <!-- listing -->
+                            <div class="mtm-news-listing the-listing element  max-lg-grid-varient clearfix">
+
+                                <div class="row clearfix mtm-news-teaser">
+
+
+<f:widget.paginate objects="{news}" as="paginatedNews" configuration="{itemsPerPage: 2, insertBelow: 1, maximumNumberOfLinks: 10}">
+
+    <f:for each="{paginatedNews}"  as="nws">
+
+                                         <!-- col -->
+                                        <div class="col-md-6 my-col two-col mtm-news-item">
+                                        	<f:link.page pageUid="{settings.details}"
+    additionalParams="{tx_news_pi1:{controller:'News',action:'detail',news:nws.uid}}" absolute="1" >
+                                                <div class="main-wrap clearfix">
+
+                                                    <div class="featured-img">
+                                                        
+                                                        <div class="news-tags">
+                                                        	<f:for each="{nws.categories}"  as="ncat">
+                                                            	<div class="{ncat.color}">{ncat.title}</div>
+                                                            </f:for>
+                                                        </div>
+
+                                                        <div class="img-holder">
+                                                        	<f:if condition="{nws.falMedia.0}">
+                                                        		<f:image src="{nws.falMedia.0.uid}" height="404" width="630"  treatIdAsReference="1" />
+                                                        	</f:if>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="news-date"><span><f:format.date format="d.m.Y">{nws.datetime}</f:format.date></span></div>
+
+                                                    <div class="news-title">
+                                                    {nws.title}
+                                                    </div>
+
+                                                    <div class="news-excerpt">
+                                                    {nws.teaser -> f:format.crop(maxCharacters: '200', respectWordBoundaries:'1') -> f:format.html()}
+                                                    </div>
+
+                                                </div>
+                                            </f:link.page>
+                                        </div>
+                                        <!-- col -->
+</f:for>
+</f:widget.paginate>
+                                    
+
+                                </div>
+
+                                
+                            </div>
+                            <!-- listing -->
+     <div class="module-all-link pull-text-center">
+       		<img src="<f:uri.image src='EXT:netz_mtm/Resources/Public/Images/hourglass.svg'/>" class="loaderimg-mtm" id="loaderimg-mtm" style="display: none;" >
+      </div>
+                            <!-- alllink -->
+                            <div class="module-all-link pull-text-center"><a class="site-button with-down-arrow" id="lazy-loader" href="javascript:void(0);">MEHR LADEN</a></div>
+                            <!-- alllink -->
+
+
+
+                        </div>
+                        <!-- news listing module -->
+
+
+
+
+                </div>
+             </div>   
+            <!-- news listing module -->
+
+
+	</f:section>
+</html>

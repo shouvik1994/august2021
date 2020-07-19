@@ -1,0 +1,151 @@
+{
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    152,
+                    60
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": true,
+                    "_default1_show": true,
+                    "_default2_new_create": true,
+                    "_default3_edit_update": true,
+                    "_default4_delete": true,
+                    "customActions": []
+                },
+                "name": "Partner",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "skipTypeConfiguration": false,
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "487795669744"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "title",
+                            "propertyType": "String",
+                            "uid": "185935973311"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "position",
+                            "propertyType": "String",
+                            "uid": "1363406859102"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "telephone",
+                            "propertyType": "String",
+                            "uid": "58369290320"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "email",
+                            "propertyType": "String",
+                            "uid": "680513580427"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "image",
+                            "propertyType": "Image",
+                            "uid": "105820906011"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "info",
+                            "propertyType": "RichText",
+                            "uid": "770845843393"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
+    "properties": {
+        "backendModules": [],
+        "description": "",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 8.7.0-8.7.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "skipGenerateDocumentationTemplate": false,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "8.7.0-8.7.99",
+            "version": "1.0.0"
+        },
+        "extensionKey": "netz_mtm",
+        "name": "MTM",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "",
+                    "noncacheableActions": "",
+                    "switchableActions": ""
+                },
+                "description": "",
+                "key": "list",
+                "name": "list"
+            }
+        ],
+        "vendorName": "Netz"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2020-04-23 09:47",
+        "extension_builder_version": "8.10.4",
+        "be_user": " (1)"
+    }
+}

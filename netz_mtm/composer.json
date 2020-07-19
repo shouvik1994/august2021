@@ -1,0 +1,23 @@
+{
+    "name": "netz/netz-mtm",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [],
+    "require": {
+        "typo3/cms-core": "^8.7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Netz\\NetzMtm\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Netz\\NetzMtm\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "netz_mtm": "self.version",
+        "typo3-ter/netz-mtm": "self.version"
+    }
+}

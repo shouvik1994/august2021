@@ -1,0 +1,8 @@
+# cat=basic/enable/40; type=string; label= Youtube Storage ID
+youtubeStorageId =
+# cat=basic/enable/40; type=string; label= API Storage ID
+apiStorageId =
+# cat=basic/enable/40; type=string; label= Team Storage ID
+teamStorageId =
+# cat=basic/enable/40; type=string; label= Player Storage ID
+playerStorageId =

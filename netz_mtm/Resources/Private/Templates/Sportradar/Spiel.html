@@ -1,0 +1,255 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="Default" />
+
+    This Template is responsible for creating a table of domain objects.
+
+    If you modify this template, do not forget to change the overwrite settings
+    in /Configuration/ExtensionBuilder/settings.yaml:
+      Resources:
+        Private:
+          Templates:
+            List.html: keep
+
+    Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+
+    <f:section name="content">
+     <!-- kader module -->
+            <div class="element element-gap-Exlarger block-section centered-container clearfix">
+                <div class="container container-width-default clearfix">
+
+
+                    <!-- module -->
+                    <div class="kader-module clearfix">
+                        
+
+                        <!-- detail view -->
+                                            <div class="link-tab-varient var-1 clearfix">
+                                                <div class="kader-detail-view clearfix">
+
+
+
+                                                        <!-- detail player secondary info -->
+                                                        <div class="detail-player-secondary-info clearfix">
+
+
+
+                                                            <!-- tab-link-page -->
+                                                            <div class="tab-link-page-module element element-gap-large clearfix">
+                                                                <div class="main-wrap">
+
+                                                                    <div class="pull-text-left prev">
+                                                                           <a href="<f:uri.page pageUid="{settings.statistiken_pid}" absolute="1" noCacheHash="1"/>">
+                                                                            <i></i>
+                                                                            <span>STATISTIKEN</span>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                    <div class="pull-text-center active">
+                                                                          <a href="<f:uri.page pageUid="{settings.spielplne_pid}" absolute="1" noCacheHash="1"/>">
+                                                                            <span>SPIELPLäNE</span>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                     <div class="pull-text-right next">
+                                                                         <a href="<f:uri.page pageUid="{settings.tabellen_pid}" absolute="1" noCacheHash="1"/>">
+                                                                            <span>TABELLEN</span>
+                                                                            <i></i>
+                                                                        </a>    
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab-link-page -->
+
+                                                            <!-- tab link -->
+                                                            <div class="info-tab-link-carousel general-carousel element element-gap-Lessnormal">
+                                                                <div class="owl-carousel clearfix">
+                                                                      
+                                                                      <f:for each="{match_list}" key="key" as="matchlist"> 
+                                                                       <div class="item">
+                                                                          <div>
+                                                                            <span>{matchlist.competition.title}</span>
+                                                                          </div>
+                                                                          <div class="carousel-context hidden">
+                                                                            <div class="the-content clearfix">
+                                                                                <!-- the-tabelle -->
+
+                                    <div class="tabelle-content-module element element-gap-Exlarge clearfix">                                            
+                                    <div class="the-tabelle content clearfix">
+                                    <div class="table-responsive clearfix">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            
+                                             <!-- thead -->
+                                            <thead>
+                                                <tr>
+                                                    <th>Datum</th>
+                                                    <th>zeit</th>
+                                                    <th class="pull-text-center">VS.</th>
+                                                    <th class="pull-text-right"></th>
+                                                </tr>
+                                            </thead>
+                                            <!-- thead -->
+
+                                           <!-- tbody -->
+                                            <tbody>
+
+                                                <f:for each="{matchlist.data}" key="key" as="data">
+                                                <f:if condition="{data.sport_event_status.match_status}==not_started">
+                                                <f:then>
+
+                                                    <tr class="has-hovered-relative-content">
+
+                                                   <td colspan="4" class="relative-ticket">
+                                                      <div class="relative-tyicket-holder">
+                                                           
+                                                           <div>
+                                                           <a href="#">
+                                                            <i>
+                                                                <img src="fileadmin/templates/Website/Images/add-reminder.svg" width="30" class="normal">
+                                                                <img src="fileadmin/templates/Website/Images/add-reminder-danger.svg" width="30" class="hovered">
+                                                            </i>
+                                                            <span>MERKEN</span>
+                                                            </a>
+                                                           </div>
+
+                                                            <div>
+                                                            <a href="#">
+                                                            <i>
+                                                                <img src="fileadmin/templates/Website/Images/tickets-dark.svg" width="40" class="normal">
+                                                                <img src="fileadmin/templates/Website/Images/tickets-danger.svg" width="40" class="hovered">
+                                                            </i>
+                                                            <span>tickets</span>
+                                                            </a>
+                                                           </div>
+
+                                                           <div>
+                                                           <a href="#">
+                                                            <i>
+                                                                <img src="fileadmin/templates/Website/Images/sky.svg" width="55" class="normal">
+                                                                <img src="fileadmin/templates/Website/Images/sky-danger.svg" width="55" class="hovered">
+                                                            </i>
+                                                            <span>tickets</span>
+                                                            </a>
+                                                           </div>
+
+                                                            <div>
+                                                            <a href="#">
+                                                            <i>
+                                                                <img src="fileadmin/templates/Website/Images/casino-chip.svg" width="35" class="normal">
+                                                                <img src="fileadmin/templates/Website/Images/casino-chip-danger.svg" width="35" class="hovered">
+                                                            </i>
+                                                            <span>bach-Ha</span>
+                                                            </a>
+                                                           </div>              
+
+                                                      </div>  
+                                                    </td> 
+                                                </f:then>
+                                                <f:else>
+                                                <tr>
+                                            </f:else>
+                                        </f:if>
+
+                                                    <td><f:format.date format="d.m.Y">{data.sport_event.start_time}</f:format.date></td>
+                                                    <td><f:format.date format="H:i">{data.sport_event.start_time}</f:format.date></td>
+                                                    <td class="pull-text-center">
+                                                         <!-- schedule -->
+                                                         <div class="next-match-schedule type-two clearfix">
+                                                            <div class="next-match-schedule-board type-two">
+
+                                                                <div class="primary-part part">
+
+                                                                    <div class="type-two"><span>{data.sport_event.competitor1.name}</span><i>
+                                                                       <f:if condition="{data.sport_event.competitor1.logo}">
+                                                                <f:image src="{data.sport_event.competitor1.logo.uid}" alt="" treatIdAsReference="1" width="35" />
+                                                                    </f:if>
+                                                                    </i></div>
+                                                                    
+                                                                    <hr>    
+
+                                                                    <div class="type-one"><i>
+                                                                          <f:if condition="{data.sport_event.competitor2.logo}">
+                                            <f:image src="{data.sport_event.competitor2.logo.uid}" alt="" treatIdAsReference="1" width="35" />
+                                                                    </f:if>
+                                                                    </i><span>{data.sport_event.competitor2.name}</span></div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>    
+                                                        <!-- schdule -->
+                                                    </td>
+                                                    <td class="pull-text-right">
+                                                <f:if condition="{data.sport_event_status.match_status}==not_started">
+                                                     {data.sport_event.venue.name}
+                                                </f:if>
+                                                <f:if condition="{data.sport_event_status.match_status}==ended">
+                                                {data.sport_event_status.home_score} : {data.sport_event_status.away_score}
+                                                </f:if>
+
+                                                <f:if condition="{data.sport_event_status.match_status}==cancelled">
+                                                 Cancelled
+                                                </f:if>
+
+                                                    </td>
+                                                </tr>
+                                            </f:for>
+
+                                             
+
+
+
+                                            </tbody>
+                                            <!-- tbody -->
+
+                                        </table>
+                                        </div>
+                                                
+                                    </div>
+                                    </div>
+                                    <!-- the-tabelle -->
+
+                                  
+                                                                            </div>
+                                                                          </div>
+                                                                      </div>
+
+                                                                     
+                                                                </f:for>
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- tab link -->
+
+
+                                                        <!-- info-tab-body -->
+                                                        <div class="info-tab-body-wrap clearfix">
+
+                                                            <div class="info-tab-body clearfix">
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- info-tab-body -->
+
+
+                                                        </div>
+                                                        <!-- detail player secondary info -->
+
+                                                </div>
+                                            </div>
+                                            <!-- detail view -->
+                          
+
+                    </div>
+                    <!-- module -->
+
+
+                </div>
+            </div>
+            <!-- kader module -->
+</f:section>
+</html>

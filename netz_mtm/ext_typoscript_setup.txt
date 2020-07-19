@@ -1,0 +1,74 @@
+
+# ==============================================
+# Persistence object mapping configuration
+# ==============================================
+config.tx_extbase.persistence.classes {
+	GeorgRinger\News\Domain\Model\Category {
+            mapping {
+                recordType = 0
+            }
+            subclasses {
+                0 = Netz\NetzMtm\Domain\Model\Category
+            }
+    }
+	Netz\NetzMtm\Domain\Model\Category {
+		mapping {
+			tableName = sys_category
+			recordType = 0
+			columns {
+				color.mapOnProperty = color
+			}
+		}
+	}
+    GeorgRinger\News\Domain\Model\News {
+        mapping {
+            recordType = 0
+        }
+        subclasses {
+            0 = Netz\NetzMtm\Domain\Model\News
+        }
+    }
+    Netz\NetzMtm\Domain\Model\News {
+        mapping {
+            tableName = tx_news_domain_model_news
+            recordType = 0
+        }
+    }
+
+
+}
+plugin.tx_news {
+    persistence {
+          GeorgRinger\News\Domain\Model\Category {
+                mapping {
+                    recordType = 0
+                }
+                subclasses {
+                    0 = Netz\NetzMtm\Domain\Model\Category
+                }
+            }
+            Netz\NetzMtm\Domain\Model\Category {
+                mapping {
+                    tableName = sys_category
+                    recordType = 0
+                    columns {
+                   		color.mapOnProperty = color
+                    }
+                }
+            }
+            GeorgRinger\News\Domain\Model\News {
+                mapping {
+                    recordType = 0
+                }
+                subclasses {
+                    0 = Netz\NetzMtm\Domain\Model\News
+                }
+            }
+            Netz\NetzMtm\Domain\Model\News {
+                mapping {
+                    tableName = tx_news_domain_model_news
+                    recordType = 0
+                }
+            }
+    }
+}
