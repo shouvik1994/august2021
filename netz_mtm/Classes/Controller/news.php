@@ -3,7 +3,7 @@
       $extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
       $partialRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($extbaseFrameworkConfiguration['view']['templateRootPaths'][0]);
 
-      echo"s";
+      
       $templatePathAndFilename = $partialRootPath . 'Api/News.html';
       $this->view->setTemplatePathAndFilename($templatePathAndFilename);
       $categorys = $this->categoryRepository->findAll();
