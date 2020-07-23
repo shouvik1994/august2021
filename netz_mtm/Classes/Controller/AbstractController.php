@@ -296,7 +296,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
            )
         ->where(
         $queryBuilder->expr()->eq('sfr.uid_foreign', $uid),
-        $queryBuilder->expr()->eq('sfr.deleted', 0),
+        $queryBuilder->expr()->eq('sfr.deleted', 1),
         $queryBuilder->expr()->like('sfr.tablenames', $queryBuilder->createNamedParameter($value)),
         $queryBuilder->expr()->like('sfr.fieldname', $queryBuilder->createNamedParameter($value1))
 
