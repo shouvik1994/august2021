@@ -6,7 +6,7 @@ CREATE TABLE tx_netzmtm_domain_model_partner (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	title varchar(255) DEFAULT '' NOT NULL,
+	title varchar(260) DEFAULT '' NOT NULL,
 	lastname varchar(255) DEFAULT '' NOT NULL,
 	position varchar(255) DEFAULT '' NOT NULL,
 	telephone varchar(255) DEFAULT '' NOT NULL,
